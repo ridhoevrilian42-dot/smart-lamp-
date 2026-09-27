@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Lamp Research Presentation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= HEADER ================= -->
+    <header class="topbar">
+
+        <div class="brand">
+            <span class="brand-dot"></span>
+            <span>SMART LAMP · RESEARCH</span>
+        </div>
+
+        <div class="top-actions">
+
+            <button
+                id="themeBtn"
+                class="icon-btn"
+                title="Ganti tema">
+                ☀
+            </button>
+
+            <button
+                id="fullscreenBtn"
+                class="icon-btn"
+                title="Fullscreen">
+                ⛶
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside id="sidebar" class="sidebar">
+
+        <div class="sidebar-title">
+            PRESENTATION
+        </div>
+
+        <nav id="slideNav"></nav>
+
+        <button
+            id="collapseBtn"
+            class="collapse-btn">
+            ‹
+        </button>
+
+    </aside>
+
+
+    <!-- ================= CONTENT ================= -->
+    <main class="stage">
+
+        <div
+            id="slides"
+            class="slides">
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="controls">
+
+        <button
+            id="prevBtn"
+            class="nav-btn">
+            ← Previous
+        </button>
+
+
+        <div class="progress-wrap">
+
+            <div class="progress-track">
+                <div
+                    id="progress"
+                    class="progress">
+                </div>
+            </div>
+
+            <span id="pageNumber">
+                01 / 20
+            </span>
+
+        </div>
+
+
+        <button
+            id="nextBtn"
+            class="nav-btn">
+            Next →
+        </button>
+
+    </footer>
+
+</div>
+
+
+<!-- ================= LIGHTBOX ================= -->
+
+<div
+    id="lightbox"
+    class="lightbox">
+
+    <button
+        id="closeLightbox">
+        ×
+    </button>
+
+    <img
+        id="lightboxImg"
+        alt="Dokumentasi">
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
