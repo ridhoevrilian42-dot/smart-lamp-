@@ -208,12 +208,23 @@ const lightboxPrev = document.getElementById("lightboxPrev");
 const lightboxNext = document.getElementById("lightboxNext");
 const stage = document.querySelector(".stage");
 
+/* arah masuk/keluar tiap slide — ditentukan otomatis, berselang-seling
+   right / left / up / down supaya terasa dinamis tapi tetap teratur */
+const directions = [
+  "right","left","up","down",
+  "right","left","up","down",
+  "right","left","up","down",
+  "right","left","up","down",
+  "right","left","up","down"
+];
+
 function createSlides(){
   slidesEl.innerHTML = "";
   content.forEach((html, i) => {
     const section = document.createElement("section");
     section.className = "slide";
     section.dataset.index = i;
+    section.dataset.dir = directions[i] || "right";
     section.innerHTML = html;
     slidesEl.appendChild(section);
   });
