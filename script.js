@@ -1,63 +1,8 @@
-/* =====================================================
-   SMART LAMP PRESENTATION
-   SCRIPT.JS
-===================================================== */
-
-
-/* ================= DATA SLIDE ================= */
-
-const titles = [
-
-    "Judul Penelitian",
-
-    "Alur Presentasi",
-
-    "Latar Belakang",
-
-    "Rumusan Masalah",
-
-    "Tujuan Penelitian",
-
-    "Batasan & Hipotesis",
-
-    "Manfaat Penelitian",
-
-    "Landasan Teori",
-
-    "Penelitian Terdahulu",
-
-    "Desain Penelitian",
-
-    "Alat & Bahan",
-
-    "Prosedur Penelitian",
-
-    "Teknik Pengumpulan Data",
-
-    "Pengolahan & Analisis Data",
-
-    "Data Hasil Penelitian",
-
-    "Grafik & Dokumentasi",
-
-    "Pembahasan",
-
-    "Kesimpulan & Saran",
-
-    "Referensi",
-
-    "Penutupan"
-
-];
-
-
-/* =====================================================
-   ISI SLIDE
-===================================================== */
-
 const content = [
 
-/* ================= 01 ================= */
+/* =====================================================
+   01 — JUDUL PENELITIAN
+===================================================== */
 
 `
 <div class="slide-inner hero">
@@ -69,19 +14,17 @@ const content = [
         </div>
 
         <h1>
-            Prototype Lampu Pintar Berbasis
-            <em>Embedded System</em>
+            Prototype Smart Lamp Berbasis
+            Embedded System dengan ESP32
         </h1>
 
         <p style="font-size:20px;max-width:850px">
 
-            Menggunakan ESP-32 sebagai alat
-            intensitas cahaya pada ruangan yang
-            mengatur pencahayaan saat belajar
-            di SMA Gunung Madu.
+            Sistem pencahayaan otomatis berdasarkan
+            intensitas cahaya ruangan menggunakan
+            sensor LDR.
 
         </p>
-
 
         <div class="hero-meta">
 
@@ -109,7 +52,6 @@ const content = [
 
     </div>
 
-
     <div class="lamp-visual">
 
         <div class="lamp"></div>
@@ -120,7 +62,9 @@ const content = [
 `,
 
 
-/* ================= 02 ================= */
+/* =====================================================
+   02 — ALUR PRESENTASI
+===================================================== */
 
 `
 <div class="slide-inner">
@@ -133,65 +77,60 @@ const content = [
         Alur Presentasi
     </h2>
 
-
     <div class="grid-3">
 
         <div class="card">
             <div class="number">01</div>
             <h3>Pendahuluan</h3>
             <p>
-                Latar belakang,
-                rumusan masalah,
-                tujuan.
+                Latar belakang, rumusan masalah,
+                tujuan, batasan, hipotesis,
+                dan manfaat penelitian.
             </p>
         </div>
-
 
         <div class="card">
             <div class="number">02</div>
-            <h3>Tinjauan Pustaka</h3>
+            <h3>Landasan Teori</h3>
             <p>
-                Landasan teori
+                ESP32, cahaya, lampu pintar,
                 dan penelitian terdahulu.
             </p>
         </div>
-
 
         <div class="card">
             <div class="number">03</div>
             <h3>Metode Penelitian</h3>
             <p>
-                Desain, alat,
-                bahan dan prosedur.
+                Desain penelitian, alat dan bahan,
+                prosedur, serta teknik pengumpulan data.
             </p>
         </div>
-
 
         <div class="card">
             <div class="number">04</div>
             <h3>Hasil & Pembahasan</h3>
             <p>
-                Data penelitian
-                dan analisis.
+                Data penelitian, grafik,
+                dokumentasi, dan pembahasan.
             </p>
         </div>
-
 
         <div class="card">
             <div class="number">05</div>
             <h3>Kesimpulan & Saran</h3>
             <p>
-                Kesimpulan penelitian
-                dan pengembangan.
+                Kesimpulan hasil penelitian
+                dan pengembangan selanjutnya.
             </p>
         </div>
 
-
         <div class="card">
             <div class="number">06</div>
-            <h3>Daftar Pustaka</h3>
+            <h3>Referensi</h3>
             <p>
-                Referensi penelitian.
+                Sumber-sumber yang digunakan
+                dalam penelitian.
             </p>
         </div>
 
@@ -201,7 +140,9 @@ const content = [
 `,
 
 
-/* ================= 03 ================= */
+/* =====================================================
+   03 — LATAR BELAKANG
+===================================================== */
 
 `
 <div class="slide-inner">
@@ -213,7 +154,6 @@ const content = [
     <h2>
         Latar Belakang
     </h2>
-
 
     <div class="flow">
 
@@ -228,18 +168,18 @@ const content = [
             </h3>
 
             <p>
-                Masukkan kondisi pencahayaan
-                ruang belajar yang menjadi
-                dasar penelitian.
+                Cahaya di ruangan SMA Gunung Madu
+                terkadang tidak kondusif. Kadang
+                terlalu terang dan kadang terlalu
+                redup sehingga menciptakan suasana
+                belajar yang tidak nyaman.
             </p>
 
         </div>
 
-
         <div class="arrow">
             →
         </div>
-
 
         <div class="card">
 
@@ -252,18 +192,18 @@ const content = [
             </h3>
 
             <p>
-                Masukkan masalah yang
-                ditemukan pada pengaturan
-                pencahayaan.
+                Masalah yang muncul adalah saat lampu
+                dinyalakan ruangan terlalu terang,
+                sedangkan jika lampu dimatikan ruangan
+                menjadi terlalu gelap sehingga
+                mengganggu penglihatan para siswa.
             </p>
 
         </div>
 
-
         <div class="arrow">
             →
         </div>
-
 
         <div class="card">
 
@@ -276,8 +216,9 @@ const content = [
             </h3>
 
             <p>
-                Prototype lampu pintar
-                berbasis ESP-32.
+                Saya menawarkan produk Smart Lamp
+                untuk mengatasi masalah pencahayaan
+                tersebut.
             </p>
 
         </div>
@@ -288,19 +229,20 @@ const content = [
 `,
 
 
-/* ================= 04 ================= */
+/* =====================================================
+   04 — RUMUSAN MASALAH
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        04 / Pertanyaan
+        04 / Rumusan Masalah
     </div>
 
     <h2>
         Rumusan Masalah
     </h2>
-
 
     <div class="grid-2">
 
@@ -311,17 +253,16 @@ const content = [
             </div>
 
             <h3>
-                Bagaimana merancang?
+                Perancangan Sistem
             </h3>
 
             <p>
-                Masukkan rumusan masalah
-                pertama sesuai naskah
-                penelitian.
+                Bagaimana cara merancang dan membangun
+                sistem prototype smart lamp berbasis
+                embedded dengan ESP32?
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -330,13 +271,14 @@ const content = [
             </div>
 
             <h3>
-                Bagaimana cara kerja?
+                Cara Kerja Sensor
             </h3>
 
             <p>
-                Masukkan rumusan masalah
-                kedua sesuai naskah
-                penelitian.
+                Bagaimana cara kerja sensor LDR dalam
+                mendeteksi kondisi pencahayaan agar
+                lampu dapat menyala dengan tingkat
+                terang yang sesuai secara otomatis?
             </p>
 
         </div>
@@ -347,7 +289,9 @@ const content = [
 `,
 
 
-/* ================= 05 ================= */
+/* =====================================================
+   05 — TUJUAN PENELITIAN
+===================================================== */
 
 `
 <div class="slide-inner">
@@ -360,7 +304,6 @@ const content = [
         Tujuan Penelitian
     </h2>
 
-
     <div class="grid-2">
 
         <div class="card">
@@ -370,16 +313,16 @@ const content = [
             </div>
 
             <h3>
-                Merancang dan membangun
+                Merancang dan Membangun
             </h3>
 
             <p>
-                Sistem lampu pintar
-                berbasis embedded system.
+                Merancang dan membangun sistem
+                prototype smart lamp berbasis
+                embedded dengan ESP32.
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -388,12 +331,13 @@ const content = [
             </div>
 
             <h3>
-                Mengetahui cara kerja
+                Mengetahui Cara Kerja LDR
             </h3>
 
             <p>
-                Sensor dan ESP-32 dalam
-                menyesuaikan pencahayaan.
+                Mengetahui cara kerja sensor LDR
+                dalam membaca cahaya yang mengatur
+                pencahayaan lampu.
             </p>
 
         </div>
@@ -404,19 +348,20 @@ const content = [
 `,
 
 
-/* ================= 06 ================= */
+/* =====================================================
+   06 — BATASAN & HIPOTESIS
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        06 / Scope
+        06 / Scope & Hypothesis
     </div>
 
     <h2>
         Batasan Masalah & Hipotesis
     </h2>
-
 
     <div class="grid-2">
 
@@ -427,35 +372,48 @@ const content = [
             </h3>
 
             <p>
-                01 — Masukkan batasan pertama.
+                <strong>1.</strong>
+                Sistem yang dibuat hanya difokuskan
+                pada pengaturan intensitas cahaya lampu
+                di dalam ruang belajar SMA Gunung Madu.
             </p>
 
             <p>
-                02 — Masukkan batasan kedua.
+                <strong>2.</strong>
+                Sensor yang digunakan hanya untuk
+                mendeteksi intensitas cahaya ruangan.
             </p>
 
             <p>
-                03 — Masukkan batasan ketiga.
+                <strong>3.</strong>
+                Sistem bekerja secara otomatis
+                berdasarkan kondisi cahaya
+                di dalam ruangan.
             </p>
 
             <p>
-                04 — Masukkan batasan keempat.
+                <strong>4.</strong>
+                Pengujian sistem dilakukan dalam skala
+                prototype dan belum diterapkan secara
+                menyeluruh di seluruh ruangan sekolah.
             </p>
 
         </div>
 
-
         <div class="card">
+
+            <div class="number">
+                H
+            </div>
 
             <h3>
                 Hipotesis
             </h3>
 
             <p>
-                Smart Lamp ini diduga dapat
-                mengatur pencahayaan ruangan
-                berdasarkan intensitas cahaya
-                yang diterima sensor.
+                Smart Lamp diduga dapat membantu
+                mengurangi masalah pencahayaan
+                pada ruangan SMA Gunung Madu.
             </p>
 
         </div>
@@ -466,19 +424,20 @@ const content = [
 `,
 
 
-/* ================= 07 ================= */
+/* =====================================================
+   07 — MANFAAT PENELITIAN
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        07 / Impact
+        07 / Manfaat
     </div>
 
     <h2>
         Manfaat Penelitian
     </h2>
-
 
     <div class="grid-3">
 
@@ -493,12 +452,13 @@ const content = [
             </h3>
 
             <p>
-                Masukkan manfaat
-                bagi sekolah.
+                Menciptakan ruang belajar yang lebih
+                nyaman serta menghemat penggunaan
+                listrik melalui sistem pencahayaan
+                otomatis.
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -511,12 +471,12 @@ const content = [
             </h3>
 
             <p>
-                Masukkan manfaat
-                bagi peneliti.
+                Memberikan pengalaman dalam mempelajari
+                embedded system, penggunaan sensor,
+                dan melakukan pemrograman.
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -525,12 +485,12 @@ const content = [
             </div>
 
             <h3>
-                Bagi Masyarakat
+                Bagi Siswa
             </h3>
 
             <p>
-                Masukkan manfaat
-                bagi masyarakat.
+                Memberikan kenyamanan dalam
+                pembelajaran.
             </p>
 
         </div>
@@ -541,59 +501,88 @@ const content = [
 `,
 
 
-/* ================= 08 ================= */
+/* =====================================================
+   08 — LANDASAN TEORI
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        08 / Theory
+        08 / Landasan Teori
     </div>
 
     <h2>
         Landasan Teori
     </h2>
 
-
     <div class="grid-3">
 
         <div class="card">
 
+            <div class="number">
+                01
+            </div>
+
             <h3>
-                ESP-32
+                ESP32
             </h3>
 
             <p>
-                Penjelasan teori ESP-32
-                sesuai sumber penelitian.
+                ESP32 adalah sebuah mikrokontroler
+                yang merupakan penerus ESP8266.
+                Pada ESP32 tersedia Wi-Fi untuk
+                mendukung alat IoT dan embedded system.
+            </p>
+
+            <p>
+                <strong>(Aulia, 2021)</strong>
             </p>
 
         </div>
 
-
         <div class="card">
+
+            <div class="number">
+                02
+            </div>
 
             <h3>
                 Cahaya
             </h3>
 
             <p>
-                Penjelasan teori cahaya
-                sesuai sumber penelitian.
+                Cahaya merupakan sumber kehidupan.
+                Tanpa adanya cahaya kemungkinan tidak
+                akan ada sebuah kehidupan. Jika tidak
+                ada cahaya, bumi akan menjadi dingin
+                dan gelap gulita.
+            </p>
+
+            <p>
+                <strong>(Sunardi, 2012)</strong>
             </p>
 
         </div>
 
-
         <div class="card">
+
+            <div class="number">
+                03
+            </div>
 
             <h3>
                 Lampu Pintar
             </h3>
 
             <p>
-                Penjelasan konsep lampu
-                pintar sesuai sumber penelitian.
+                Lampu pintar adalah lampu yang bisa
+                dikendalikan secara otomatis melalui
+                IoT ataupun embedded system.
+            </p>
+
+            <p>
+                <strong>(Djaeng dan Dwi, 2017)</strong>
             </p>
 
         </div>
@@ -604,19 +593,20 @@ const content = [
 `,
 
 
-/* ================= 09 ================= */
+/* =====================================================
+   09 — PENELITIAN TERDAHULU
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        09 / Literature
+        09 / Penelitian Terdahulu
     </div>
 
     <h2>
         Penelitian Terdahulu
     </h2>
-
 
     <div class="grid-2">
 
@@ -627,21 +617,17 @@ const content = [
             </div>
 
             <h3>
-                Penelitian Terdahulu 01
+                Domingos Soares Martins
             </h3>
 
             <p>
-                Domingos Soares Martins
-                (2023)
-            </p>
-
-            <p>
-                Hasil: masukkan ringkasan
-                hasil penelitian.
+                Sistem berhasil mengontrol lampu
+                secara otomatis berdasarkan intensitas
+                cahaya sekitar maupun secara manual
+                melalui tombol.
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -650,17 +636,15 @@ const content = [
             </div>
 
             <h3>
-                Penelitian Terdahulu 02
+                Demi Adidrana, Arif Rahman Hakim,
+                Hertanto Suryoprayogo, dan Ilham Roni Yansyah
             </h3>
 
             <p>
-                Demi Adidrana dkk.
-                (2023)
-            </p>
-
-            <p>
-                Hasil: masukkan ringkasan
-                hasil penelitian.
+                Sistem lampu pintar berbasis ESP32
+                DevKit dan Ubidots berhasil mengontrol
+                indikator LED berdasarkan cahaya maupun
+                melalui perintah web Ubidots.
             </p>
 
         </div>
@@ -671,55 +655,46 @@ const content = [
 `,
 
 
-/* ================= 10 ================= */
+/* =====================================================
+   10 — DESAIN PENELITIAN
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        10 / Method
+        10 / Desain Penelitian
     </div>
 
     <h2>
         Desain Penelitian
     </h2>
 
+    <div class="grid-3">
 
-    <div class="card">
-
-        <div class="section-head">
+        <div class="card">
 
             <h3>
                 Periode Penelitian
             </h3>
 
-            <span class="tag">
-                14 JUL — 27 AGU
-            </span>
-
-        </div>
-
-        <p>
-            Periode penelitian.
-        </p>
-
-    </div>
-
-
-    <div class="flow">
-
-        <div class="card">
-
-            <h3>
-                Jenis
-            </h3>
-
             <p>
-                Masukkan jenis penelitian.
+                14-07-2026 sampai 27-08-2026
             </p>
 
         </div>
 
+        <div class="card">
+
+            <h3>
+                Jenis Penelitian
+            </h3>
+
+            <p>
+                Eksperimen dan penelitian.
+            </p>
+
+        </div>
 
         <div class="card">
 
@@ -728,48 +703,67 @@ const content = [
             </h3>
 
             <p>
-                Masukkan tempat penelitian.
+                Lab Fisika SMA Gunung Madu
+                dan di rumah.
             </p>
 
         </div>
 
+        <div class="card">
+
+            <h3>
+                Objek Penelitian
+            </h3>
+
+            <p>
+                Prototype Smart Lamp.
+            </p>
+
+        </div>
 
         <div class="card">
 
             <h3>
-                Objek
+                Variabel Bebas
             </h3>
 
             <p>
-                Masukkan objek penelitian.
+                Hanya mengubah sistem menjadi otomatis
+                dengan membaca intensitas cahaya dan
+                mengeluarkan cahaya sesuai dengan
+                intensitas cahaya yang diterima.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Variabel Terikat
+            </h3>
+
+            <p>
+                Hasil yang diukur berdasarkan
+                intensitas cahaya, lux meter,
+                dan PWM.
             </p>
 
         </div>
 
     </div>
 
-
     <div
-        class="grid-3"
+        class="card"
         style="margin-top:18px">
 
-        <div class="card">
-            <h3>
-                Variabel Bebas
-            </h3>
-        </div>
+        <h3>
+            Variabel Terkontrol
+        </h3>
 
-        <div class="card">
-            <h3>
-                Variabel Terikat
-            </h3>
-        </div>
-
-        <div class="card">
-            <h3>
-                Variabel Terkontrol
-            </h3>
-        </div>
+        <p>
+            Yang sama hanya sakelarnya on/off,
+            sama seperti lampu pada umumnya.
+        </p>
 
     </div>
 
@@ -777,24 +771,20 @@ const content = [
 `,
 
 
-/* ================= 11 ================= */
+/* =====================================================
+   11 — ALAT & BAHAN
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        11 / Components
+        11 / Alat & Bahan
     </div>
 
     <h2>
         Alat & Bahan
     </h2>
-
-
-    <h3>
-        Alat
-    </h3>
-
 
     <div class="grid-4">
 
@@ -803,7 +793,7 @@ const content = [
         </div>
 
         <div class="card">
-            <h3>ESP-32</h3>
+            <h3>ESP32</h3>
         </div>
 
         <div class="card">
@@ -832,17 +822,16 @@ const content = [
 
     </div>
 
-
     <div
         class="card"
         style="margin-top:20px">
 
         <h3>
-            Bahan / Software
+            Software
         </h3>
 
         <p>
-            Arduino IDE · Library ESP-32 · Wi-Fi
+            Arduino IDE dan Serial Monitor.
         </p>
 
     </div>
@@ -851,19 +840,20 @@ const content = [
 `,
 
 
-/* ================= 12 ================= */
+/* =====================================================
+   12 — PROSEDUR PENELITIAN
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        12 / Procedure
+        12 / Prosedur
     </div>
 
     <h2>
         Prosedur Penelitian
     </h2>
-
 
     <div class="timeline">
 
@@ -877,28 +867,28 @@ const content = [
         <div class="step">
             <div class="number">02</div>
             <div class="card">
-                <h3>Perancangan</h3>
+                <h3>Perancangan Sistem</h3>
             </div>
         </div>
 
         <div class="step">
             <div class="number">03</div>
             <div class="card">
-                <h3>Pemasangan</h3>
+                <h3>Pemasangan Komponen</h3>
             </div>
         </div>
 
         <div class="step">
             <div class="number">04</div>
             <div class="card">
-                <h3>Coding</h3>
+                <h3>Pemrograman ESP32</h3>
             </div>
         </div>
 
         <div class="step">
             <div class="number">05</div>
             <div class="card">
-                <h3>Pengujian Sensor</h3>
+                <h3>Pengujian Sensor LDR</h3>
             </div>
         </div>
 
@@ -912,21 +902,14 @@ const content = [
         <div class="step">
             <div class="number">07</div>
             <div class="card">
-                <h3>Perbaikan Coding</h3>
+                <h3>Pengambilan Data</h3>
             </div>
         </div>
 
         <div class="step">
             <div class="number">08</div>
             <div class="card">
-                <h3>Pengambilan Data</h3>
-            </div>
-        </div>
-
-        <div class="step">
-            <div class="number">09</div>
-            <div class="card">
-                <h3>Analisis Hasil</h3>
+                <h3>Analisis Data</h3>
             </div>
         </div>
 
@@ -936,58 +919,77 @@ const content = [
 `,
 
 
-/* ================= 13 ================= */
+/* =====================================================
+   13 — TEKNIK PENGUMPULAN DATA
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        13 / Data Collection
+        13 / Pengumpulan Data
     </div>
 
     <h2>
         Teknik Pengumpulan Data
     </h2>
 
-
     <div class="grid-3">
 
         <div class="card">
+
+            <div class="number">
+                01
+            </div>
 
             <h3>
                 Jenis Data
             </h3>
 
             <p>
-                Data primer
+                Data primer.
+            </p>
+
+            <p>
+                Mengukur intensitas cahaya,
+                melihat nilai PWM, dan menguji
+                lampu di kondisi yang berbeda.
             </p>
 
         </div>
 
-
         <div class="card">
+
+            <div class="number">
+                02
+            </div>
 
             <h3>
                 Instrumen
             </h3>
 
             <p>
-                LDR · ESP-32 ·
-                Serial Monitor
+                Sensor LDR,
+                ESP32, dan
+                Serial Monitor Arduino IDE.
             </p>
 
         </div>
 
-
         <div class="card">
 
+            <div class="number">
+                03
+            </div>
+
             <h3>
-                Pengambilan Data
+                Cara Pengambilan Data
             </h3>
 
             <p>
-                Masukkan lokasi dan
-                durasi pengambilan data.
+                Mengambil data di lab dan
+                dilakukan pengujian alat
+                selama 2 jam.
             </p>
 
         </div>
@@ -998,19 +1000,20 @@ const content = [
 `,
 
 
-/* ================= 14 ================= */
+/* =====================================================
+   14 — PENGOLAHAN & ANALISIS DATA
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        14 / Analysis
+        14 / Analisis Data
     </div>
 
     <h2>
         Teknik Pengolahan & Analisis Data
     </h2>
-
 
     <div class="card">
 
@@ -1027,66 +1030,63 @@ const content = [
                         </th>
 
                         <th>
-                            Nilai
+                            Data yang Diamati
                         </th>
 
                         <th>
-                            Keterangan
+                            Instrumen
                         </th>
 
                     </tr>
 
                 </thead>
 
-
                 <tbody>
 
                     <tr>
 
                         <td>
-                            Data 01
+                            Intensitas Cahaya
                         </td>
 
                         <td>
-                            —
+                            Nilai cahaya yang diterima
                         </td>
 
                         <td>
-                            Masukkan data penelitian
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Data 02
-                        </td>
-
-                        <td>
-                            —
-                        </td>
-
-                        <td>
-                            Masukkan data penelitian
+                            LDR / Lux Meter
                         </td>
 
                     </tr>
 
+                    <tr>
+
+                        <td>
+                            PWM
+                        </td>
+
+                        <td>
+                            Nilai pengaturan output lampu
+                        </td>
+
+                        <td>
+                            Serial Monitor
+                        </td>
+
+                    </tr>
 
                     <tr>
 
                         <td>
-                            Data 03
+                            Kondisi Lampu
                         </td>
 
                         <td>
-                            —
+                            Tingkat terang lampu
                         </td>
 
                         <td>
-                            Masukkan data penelitian
+                            Pengamatan
                         </td>
 
                     </tr>
@@ -1097,13 +1097,11 @@ const content = [
 
         </div>
 
-
         <p>
-
-            Analisis dilakukan dengan
-            membandingkan data intensitas
-            cahaya dan respons output lampu.
-
+            Data dianalisis dengan melihat hubungan
+            antara intensitas cahaya yang diterima
+            sensor dengan nilai PWM yang diberikan
+            oleh ESP32 kepada lampu.
         </p>
 
     </div>
@@ -1112,19 +1110,20 @@ const content = [
 `,
 
 
-/* ================= 15 ================= */
+/* =====================================================
+   15 — DATA HASIL PENELITIAN
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        15 / Results
+        15 / Hasil Penelitian
     </div>
 
     <h2>
         Data Hasil Penelitian
     </h2>
-
 
     <div class="card">
 
@@ -1136,29 +1135,35 @@ const content = [
 
                     <tr>
 
-                        <th>No.</th>
+                        <th>
+                            No.
+                        </th>
 
                         <th>
                             Intensitas Cahaya
                         </th>
 
                         <th>
-                            Nilai Sensor
+                            Lux Meter
                         </th>
 
                         <th>
-                            Output Lampu
+                            Nilai PWM
+                        </th>
+
+                        <th>
+                            Kondisi Lampu
                         </th>
 
                     </tr>
 
                 </thead>
 
-
                 <tbody>
 
                     <tr>
                         <td>01</td>
+                        <td>—</td>
                         <td>—</td>
                         <td>—</td>
                         <td>—</td>
@@ -1169,6 +1174,7 @@ const content = [
                         <td>—</td>
                         <td>—</td>
                         <td>—</td>
+                        <td>—</td>
                     </tr>
 
                     <tr>
@@ -1176,10 +1182,12 @@ const content = [
                         <td>—</td>
                         <td>—</td>
                         <td>—</td>
+                        <td>—</td>
                     </tr>
 
                     <tr>
                         <td>04</td>
+                        <td>—</td>
                         <td>—</td>
                         <td>—</td>
                         <td>—</td>
@@ -1191,9 +1199,10 @@ const content = [
 
         </div>
 
-
         <p>
-            ⚠ Data asli penelitian belum dimasukkan.
+            Data pengukuran aktual dapat dimasukkan
+            pada tabel ini setelah hasil pengujian
+            tersedia.
         </p>
 
     </div>
@@ -1202,28 +1211,28 @@ const content = [
 `,
 
 
-/* ================= 16 ================= */
+/* =====================================================
+   16 — GRAFIK & DOKUMENTASI
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        16 / Visual Results
+        16 / Grafik & Dokumentasi
     </div>
 
     <h2>
         Grafik & Dokumentasi
     </h2>
 
-
     <div class="grid-2">
 
         <div class="card">
 
             <h3>
-                Grafik Intensitas Cahaya ↔ PWM
+                Hubungan Lux dan PWM
             </h3>
-
 
             <div class="bar-chart">
 
@@ -1257,23 +1266,20 @@ const content = [
                     <span>—</span>
                 </div>
 
-                <div
-                    class="bar"
-                    style="height:63%">
-                    <span>—</span>
-                </div>
-
             </div>
 
-        </div>
+            <p>
+                Grafik aktual disesuaikan dengan
+                data hasil pengujian.
+            </p>
 
+        </div>
 
         <div class="card">
 
             <h3>
-                Dokumentasi
+                Dokumentasi Penelitian
             </h3>
-
 
             <div class="gallery">
 
@@ -1283,14 +1289,7 @@ const content = [
 
                     FOTO 1
 
-                    <br>
-
-                    <small>
-                        klik untuk fullscreen
-                    </small>
-
                 </div>
-
 
                 <div
                     class="photo"
@@ -1298,14 +1297,7 @@ const content = [
 
                     FOTO 2
 
-                    <br>
-
-                    <small>
-                        klik untuk fullscreen
-                    </small>
-
                 </div>
-
 
                 <div
                     class="photo"
@@ -1313,26 +1305,13 @@ const content = [
 
                     FOTO 3
 
-                    <br>
-
-                    <small>
-                        klik untuk fullscreen
-                    </small>
-
                 </div>
-
 
                 <div
                     class="photo"
                     data-photo="4">
 
                     FOTO 4
-
-                    <br>
-
-                    <small>
-                        klik untuk fullscreen
-                    </small>
 
                 </div>
 
@@ -1346,21 +1325,22 @@ const content = [
 `,
 
 
-/* ================= 17 ================= */
+/* =====================================================
+   17 — PEMBAHASAN
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        17 / Discussion
+        17 / Pembahasan
     </div>
 
     <h2>
         Pembahasan
     </h2>
 
-
-    <div class="flow">
+    <div class="grid-3">
 
         <div class="card">
 
@@ -1369,20 +1349,18 @@ const content = [
             </div>
 
             <h3>
-                Hasil
+                Apa Hasil Utamanya?
             </h3>
 
             <p>
-                Data cahaya diterima sensor.
+                Terdapat hubungan antara PWM dan
+                lux yang sesuai. PWM berkurang jika
+                menerima cahaya yang terang, dan PWM
+                akan bertambah jika menerima cahaya
+                yang kurang.
             </p>
 
         </div>
-
-
-        <div class="arrow">
-            →
-        </div>
-
 
         <div class="card">
 
@@ -1391,21 +1369,17 @@ const content = [
             </div>
 
             <h3>
-                Proses
+                Mengapa Bisa Terjadi?
             </h3>
 
             <p>
-                LDR memberikan input
-                kepada ESP-32.
+                Karena sensor LDR akan menerima cahaya
+                sebagai input yang akan dikirim ke ESP32
+                sebagai proses, kemudian dikeluarkan
+                melalui lampu sebagai cahaya atau output.
             </p>
 
         </div>
-
-
-        <div class="arrow">
-            →
-        </div>
-
 
         <div class="card">
 
@@ -1414,32 +1388,26 @@ const content = [
             </div>
 
             <h3>
-                Output
+                Perbandingan dengan Peneliti Sebelumnya
             </h3>
 
             <p>
-                ESP-32 mengatur
-                keluaran lampu.
+                Domingos Soares Martins membuat smart
+                lamp berbasis NodeMCU dengan sensor LDR
+                berbasis IoT yang dapat dikendalikan dari
+                jarak jauh dan efisien dalam penggunaan
+                energi.
+            </p>
+
+            <p>
+                Penelitian saya menggunakan embedded
+                system yang juga mengontrol lampu secara
+                otomatis dan efisien dalam penggunaan
+                energi, tetapi tidak dapat dikendalikan
+                dari jarak jauh.
             </p>
 
         </div>
-
-    </div>
-
-
-    <div
-        class="card"
-        style="margin-top:18px">
-
-        <h3>
-            Perbandingan
-        </h3>
-
-        <p>
-            Hubungkan hasil penelitian
-            dengan penelitian terdahulu
-            berdasarkan data yang sebenarnya.
-        </p>
 
     </div>
 
@@ -1447,19 +1415,20 @@ const content = [
 `,
 
 
-/* ================= 18 ================= */
+/* =====================================================
+   18 — KESIMPULAN & SARAN
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        18 / Conclusion
+        18 / Kesimpulan & Saran
     </div>
 
     <h2>
         Kesimpulan & Saran
     </h2>
-
 
     <div class="grid-2">
 
@@ -1470,55 +1439,41 @@ const content = [
             </h3>
 
             <p>
-                01 — Masukkan kesimpulan pertama.
+                <strong>01.</strong>
+                Dapat menciptakan lingkungan belajar
+                yang nyaman pada ruang kelas.
             </p>
 
             <p>
-                02 — Masukkan kesimpulan kedua.
+                <strong>02.</strong>
+                Mengetahui cara kerja sensor LDR
+                dalam mendeteksi intensitas cahaya
+                pada ruangan.
             </p>
 
         </div>
 
+        <div class="card">
 
-        <div class="grid-3">
+            <h3>
+                Saran
+            </h3>
 
-            <div class="card">
+            <p>
+                <strong>01.</strong>
+                Pemanfaatan teknologi Li-Fi.
+            </p>
 
-                <h3>
-                    Saran 01
-                </h3>
+            <p>
+                <strong>02.</strong>
+                Integrasi Artificial Intelligence.
+            </p>
 
-                <p>
-                    Li-Fi
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Saran 02
-                </h3>
-
-                <p>
-                    AI & Kontekstual Mandiri
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Saran 03
-                </h3>
-
-                <p>
-                    Lampu + Panel Surya Mini
-                </p>
-
-            </div>
+            <p>
+                <strong>03.</strong>
+                Penggunaan lampu hemat energi
+                dengan panel surya mini.
+            </p>
 
         </div>
 
@@ -1528,19 +1483,20 @@ const content = [
 `,
 
 
-/* ================= 19 ================= */
+/* =====================================================
+   19 — REFERENSI
+===================================================== */
 
 `
 <div class="slide-inner">
 
     <div class="kicker">
-        19 / References
+        19 / Referensi
     </div>
 
     <h2>
         Referensi
     </h2>
-
 
     <div class="timeline">
 
@@ -1551,13 +1507,16 @@ const content = [
             </div>
 
             <div class="card">
-                <h3>
-                    Aulia (2021) — ESP-32
-                </h3>
+
+                <p>
+                    Martins, D. (2023).
+                    Pengendalian lampu berbasis IoT
+                    menggunakan NodeMCU dan sensor cahaya.
+                </p>
+
             </div>
 
         </div>
-
 
         <div class="step">
 
@@ -1566,13 +1525,18 @@ const content = [
             </div>
 
             <div class="card">
-                <h3>
-                    Sunardi (2012) — Cahaya
-                </h3>
+
+                <p>
+                    Panjaitan, S. D. M. (2022).
+                    Prototype pengendalian lampu jarak jauh
+                    dengan jaringan internet berbasis
+                    Internet of Things (IoT) menggunakan
+                    Raspberry Pi3.
+                </p>
+
             </div>
 
         </div>
-
 
         <div class="step">
 
@@ -1581,13 +1545,17 @@ const content = [
             </div>
 
             <div class="card">
-                <h3>
-                    Djaeng dan Dwi (2017) — Lampu Pintar
-                </h3>
+
+                <p>
+                    Lestari, L., Syahwi, dan Haramaini, T.
+                    (2023). Pemanfaatan teknologi Internet
+                    of Things untuk kendali lampu menggunakan
+                    Android.
+                </p>
+
             </div>
 
         </div>
-
 
         <div class="step">
 
@@ -1596,13 +1564,17 @@ const content = [
             </div>
 
             <div class="card">
-                <h3>
-                    Domingos Soares Martins (2023)
-                </h3>
+
+                <p>
+                    Hidayat, F., Martanto, Rinaldi, A.,
+                    dan Rifai, A. (2025). Penerapan IoT pada
+                    kendali lampu menggunakan ESP8266 dan
+                    sensor cahaya untuk efisiensi energi.
+                </p>
+
             </div>
 
         </div>
-
 
         <div class="step">
 
@@ -1611,9 +1583,14 @@ const content = [
             </div>
 
             <div class="card">
-                <h3>
-                    Demi Adidrana dkk. (2023)
-                </h3>
+
+                <p>
+                    Alama, N., Rahmani, H., dan Yeni.
+                    (2022). Lampu otomatis menggunakan
+                    sensor cahaya berbasis Arduino Uno
+                    dengan alat sensor LDR.
+                </p>
+
             </div>
 
         </div>
@@ -1624,7 +1601,9 @@ const content = [
 `,
 
 
-/* ================= 20 ================= */
+/* =====================================================
+   20 — PENUTUP
+===================================================== */
 
 `
 <div class="slide-inner closing">
@@ -1633,16 +1612,13 @@ const content = [
         20 / Closing
     </div>
 
-
     <div class="big-thanks">
         TERIMA KASIH
     </div>
 
-
     <p style="font-size:20px">
         SESI TANYA JAWAB
     </p>
-
 
     <div
         class="hero-meta"
@@ -1663,439 +1639,7 @@ const content = [
     </div>
 
 </div>
+
 `
 
 ];
-
-
-/* =====================================================
-   ELEMENT
-===================================================== */
-
-const slidesContainer =
-    document.getElementById("slides");
-
-const slideNav =
-    document.getElementById("slideNav");
-
-const previousButton =
-    document.getElementById("prevBtn");
-
-const nextButton =
-    document.getElementById("nextBtn");
-
-const progress =
-    document.getElementById("progress");
-
-const pageNumber =
-    document.getElementById("pageNumber");
-
-
-/* =====================================================
-   CURRENT SLIDE
-===================================================== */
-
-let currentSlide = 0;
-
-
-/* =====================================================
-   CREATE SLIDES
-===================================================== */
-
-content.forEach((html, index) => {
-
-    const slide =
-        document.createElement("section");
-
-    slide.className = "slide";
-
-    slide.innerHTML = html;
-
-    slide.dataset.index = index;
-
-    slidesContainer.appendChild(slide);
-
-
-    /* ================= SIDEBAR BUTTON ================= */
-
-    const navigationButton =
-        document.createElement("button");
-
-    navigationButton.className =
-        "nav-item";
-
-
-    navigationButton.innerHTML = `
-
-        <span class="nav-num">
-
-            ${String(index + 1).padStart(2, "0")}
-
-        </span>
-
-        <span class="nav-label">
-
-            ${titles[index]}
-
-        </span>
-
-    `;
-
-
-    navigationButton.addEventListener(
-        "click",
-        () => {
-
-            goToSlide(index);
-
-        }
-    );
-
-
-    slideNav.appendChild(
-        navigationButton
-    );
-
-});
-
-
-/* =====================================================
-   GET SLIDES
-===================================================== */
-
-const allSlides =
-    [...document.querySelectorAll(".slide")];
-
-const navItems =
-    [...document.querySelectorAll(".nav-item")];
-
-
-/* =====================================================
-   GO TO SLIDE
-===================================================== */
-
-function goToSlide(index) {
-
-    currentSlide =
-        Math.max(
-            0,
-            Math.min(
-                content.length - 1,
-                index
-            )
-        );
-
-
-    /* ================= ACTIVE SLIDE ================= */
-
-    allSlides.forEach(
-        (slide, index) => {
-
-            slide.classList.toggle(
-                "active",
-                index === currentSlide
-            );
-
-        }
-    );
-
-
-    /* ================= ACTIVE NAV ================= */
-
-    navItems.forEach(
-        (item, index) => {
-
-            item.classList.toggle(
-                "active",
-                index === currentSlide
-            );
-
-        }
-    );
-
-
-    /* ================= PAGE NUMBER ================= */
-
-    pageNumber.textContent =
-        `${String(currentSlide + 1).padStart(2, "0")} / 20`;
-
-
-    /* ================= PROGRESS ================= */
-
-    const percentage =
-        ((currentSlide + 1) / content.length) * 100;
-
-
-    progress.style.width =
-        `${percentage}%`;
-
-
-    /* ================= BUTTON ================= */
-
-    previousButton.disabled =
-        currentSlide === 0;
-
-
-    nextButton.disabled =
-        currentSlide === content.length - 1;
-
-}
-
-
-/* =====================================================
-   NEXT
-===================================================== */
-
-nextButton.addEventListener(
-    "click",
-    () => {
-
-        goToSlide(
-            currentSlide + 1
-        );
-
-    }
-);
-
-
-/* =====================================================
-   PREVIOUS
-===================================================== */
-
-previousButton.addEventListener(
-    "click",
-    () => {
-
-        goToSlide(
-            currentSlide - 1
-        );
-
-    }
-);
-
-
-/* =====================================================
-   KEYBOARD NAVIGATION
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (
-            event.key === "ArrowRight" ||
-            event.key === "PageDown"
-        ) {
-
-            goToSlide(
-                currentSlide + 1
-            );
-
-        }
-
-
-        if (
-            event.key === "ArrowLeft" ||
-            event.key === "PageUp"
-        ) {
-
-            goToSlide(
-                currentSlide - 1
-            );
-
-        }
-
-
-        if (
-            event.key.toLowerCase() === "f"
-        ) {
-
-            document.documentElement
-                .requestFullscreen?.();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   DARK / LIGHT MODE
-===================================================== */
-
-const themeButton =
-    document.getElementById("themeBtn");
-
-
-themeButton.addEventListener(
-    "click",
-    () => {
-
-        document.body.classList.toggle(
-            "light"
-        );
-
-    }
-);
-
-
-/* =====================================================
-   FULLSCREEN
-===================================================== */
-
-const fullscreenButton =
-    document.getElementById(
-        "fullscreenBtn"
-    );
-
-
-fullscreenButton.addEventListener(
-    "click",
-    () => {
-
-        if (!document.fullscreenElement) {
-
-            document.documentElement
-                .requestFullscreen?.();
-
-        } else {
-
-            document.exitFullscreen?.();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   SIDEBAR COLLAPSE
-===================================================== */
-
-const collapseButton =
-    document.getElementById(
-        "collapseBtn"
-    );
-
-
-collapseButton.addEventListener(
-    "click",
-    () => {
-
-        document.body.classList.toggle(
-            "sidebar-collapsed"
-        );
-
-
-        if (
-            document.body.classList.contains(
-                "sidebar-collapsed"
-            )
-        ) {
-
-            collapseButton.textContent = "›";
-
-        } else {
-
-            collapseButton.textContent = "‹";
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   LIGHTBOX
-===================================================== */
-
-const lightbox =
-    document.getElementById(
-        "lightbox"
-    );
-
-const lightboxImage =
-    document.getElementById(
-        "lightboxImg"
-    );
-
-const closeLightbox =
-    document.getElementById(
-        "closeLightbox"
-    );
-
-
-/* ================= PHOTO ================= */
-
-document.querySelectorAll(".photo")
-    .forEach(
-        (photo) => {
-
-            photo.addEventListener(
-                "click",
-                () => {
-
-                    const number =
-                        photo.dataset.photo;
-
-
-                    /*
-                        Sementara menggunakan
-                        placeholder.
-
-                        Nanti bisa diganti
-                        dengan foto penelitian asli.
-                    */
-
-                    lightboxImage.src =
-                        `https://placehold.co/1200x800/141e27/f5b84b?text=Dokumentasi+${number}`;
-
-
-                    lightbox.classList.add(
-                        "open"
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-/* ================= CLOSE ================= */
-
-closeLightbox.addEventListener(
-    "click",
-    () => {
-
-        lightbox.classList.remove(
-            "open"
-        );
-
-    }
-);
-
-
-lightbox.addEventListener(
-    "click",
-    (event) => {
-
-        if (
-            event.target === lightbox
-        ) {
-
-            lightbox.classList.remove(
-                "open"
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-goToSlide(0);
