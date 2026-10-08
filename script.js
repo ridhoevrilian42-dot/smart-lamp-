@@ -4,6 +4,12 @@ const titles = ["Judul","Alur Presentasi","Latar Belakang","Rumusan Masalah","Tu
 "Alat & Bahan","Prosedur Penelitian","Pengumpulan Data","Pengolahan Data","Hasil Penelitian",
 "Grafik & Dokumentasi","Pembahasan","Kesimpulan & Saran","Referensi","Penutup"];
 
+/* data gambar "Alat" (base64) didefinisikan di index.html sebagai window.TOOL_IMAGES */
+const TOOL_IMAGES = window.TOOL_IMAGES || {};
+const CHART_IMAGE = window.CHART_IMAGE || "";
+const STEP_IMAGES = window.STEP_IMAGES || {};
+const DOC_IMAGES = window.DOC_IMAGES || [];
+
 const content = [
 `<div class="slide-inner hero"><div><div class="kicker">Prototype Smart Lamp</div>
 <h1>Prototype Smart Lamp Berbasis Embedded System dengan ESP32</h1>
@@ -86,22 +92,30 @@ const content = [
 </div>`,
 
 `<div class="slide-inner"><div class="kicker">11 / Alat & Bahan</div><h2>Alat & Bahan</h2>
+<h3 class="section-label">Alat</h3>
 <div class="grid-4">
-<div class="card"><h3>Laptop</h3></div><div class="card"><h3>ESP32</h3></div><div class="card"><h3>LDR</h3></div><div class="card"><h3>Lampu</h3></div>
-<div class="card"><h3>Jumper</h3></div><div class="card"><h3>Adaptor</h3></div><div class="card"><h3>Breadboard</h3></div><div class="card"><h3>USB</h3></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.laptop}" alt="Laptop" loading="lazy"></div></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.esp32}" alt="ESP32" loading="lazy"></div></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.ldr}" alt="LDR" loading="lazy"></div></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.led}" alt="Lampu" loading="lazy"></div></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.jumper}" alt="Jumper" loading="lazy"></div></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.adaptor}" alt="Adaptor" loading="lazy"></div></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.breadboard}" alt="Breadboard" loading="lazy"></div></div>
+<div class="card tool-card"><div class="tool-photo"><img src="${TOOL_IMAGES.usb}" alt="USB" loading="lazy"></div></div>
 </div>
-<div class="card" style="margin-top:18px"><h3>Software</h3><p>Arduino IDE dan Serial Monitor.</p></div>
+<h3 class="section-label" style="margin-top:20px">Bahan</h3>
+<div class="card" style="margin-top:10px"><h3>Software</h3><p>Arduino IDE dan Serial Monitor.</p></div>
 </div>`,
 
 `<div class="slide-inner"><div class="kicker">12 / Prosedur</div><h2>Prosedur Penelitian</h2>
 <div class="timeline">
 <div class="step"><div class="number">01</div><div class="card"><h3>Persiapan</h3></div></div>
-<div class="step"><div class="number">02</div><div class="card"><h3>Perancangan Sistem</h3></div></div>
-<div class="step"><div class="number">03</div><div class="card"><h3>Pemasangan Komponen</h3></div></div>
-<div class="step"><div class="number">04</div><div class="card"><h3>Pemrograman ESP32</h3></div></div>
-<div class="step"><div class="number">05</div><div class="card"><h3>Pengujian Sensor LDR</h3></div></div>
-<div class="step"><div class="number">06</div><div class="card"><h3>Pengujian Lampu</h3></div></div>
-<div class="step"><div class="number">07</div><div class="card"><h3>Pengambilan Data</h3></div></div>
+<div class="step"><div class="number">02</div><div class="card step-clickable" id="flowchartTrigger"><h3>Perancangan Sistem</h3></div></div>
+<div class="step"><div class="number">03</div><div class="card step-clickable" data-step-img="komponen" data-caption="Pemasangan Komponen"><h3>Pemasangan Komponen</h3></div></div>
+<div class="step"><div class="number">04</div><div class="card step-clickable" data-step-img="kode" data-caption="Pemrograman ESP32"><h3>Pemrograman ESP32</h3></div></div>
+<div class="step"><div class="number">05</div><div class="card step-clickable" data-step-img="ldr" data-caption="Pengujian Sensor LDR"><h3>Pengujian Sensor LDR</h3></div></div>
+<div class="step"><div class="number">06</div><div class="card step-clickable" data-step-img="lampu" data-caption="Pengujian Lampu"><h3>Pengujian Lampu</h3></div></div>
+<div class="step"><div class="number">07</div><div class="card step-clickable" data-step-img="data" data-caption="Pengambilan Data"><h3>Pengambilan Data</h3></div></div>
 <div class="step"><div class="number">08</div><div class="card"><h3>Analisis Data</h3></div></div>
 </div></div>`,
 
@@ -125,33 +139,25 @@ const content = [
 
 `<div class="slide-inner"><div class="kicker">15 / Hasil Penelitian</div><h2>Data Hasil Penelitian</h2>
 <div class="card"><div class="table-wrap"><table class="data-table">
-<thead><tr><th>No.</th><th>Intensitas Cahaya</th><th>Lux Meter</th><th>Nilai PWM</th><th>Kondisi Lampu</th></tr></thead>
+<thead><tr><th>No.</th><th>Kondisi Lampu</th><th>Intensitas Cahaya</th><th>Nilai PWM</th><th>Daya</th></tr></thead>
 <tbody>
-<tr><td>01</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>02</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>03</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>04</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>01</td><td>Terang</td><td>100</td><td>250</td><td>8</td></tr>
+<tr><td>02</td><td>Redup</td><td>60</td><td>140</td><td>4</td></tr>
+<tr><td>03</td><td>Gelap</td><td>0</td><td>0</td><td>0</td></tr>
 </tbody></table></div>
-<p>Data pengukuran aktual dapat dimasukkan pada tabel ini setelah hasil pengujian tersedia.</p>
+<p>Data uji coba pada tiga kondisi lampu: terang, redup, dan gelap.</p>
 </div></div>`,
 
 `<div class="slide-inner"><div class="kicker">16 / Grafik & Dokumentasi</div><h2>Grafik & Dokumentasi</h2>
 <div class="grid-2">
-<div class="card"><h3>Hubungan Lux dan PWM</h3>
-<div class="bar-chart">
-<div class="bar" style="height:35%"><span>—</span></div>
-<div class="bar" style="height:55%"><span>—</span></div>
-<div class="bar" style="height:72%"><span>—</span></div>
-<div class="bar" style="height:48%"><span>—</span></div>
-<div class="bar" style="height:84%"><span>—</span></div>
-</div>
-<p>Grafik aktual disesuaikan dengan data hasil pengujian.</p></div>
+<div class="card"><h3>Grafik Data Uji Coba</h3>
+<img class="chart-img" id="chartImg" src="${CHART_IMAGE}" alt="Grafik Data Uji Coba: cahaya, PWM, dan daya"></div>
 <div class="card"><h3>Dokumentasi Penelitian</h3>
 <div class="gallery">
-<div class="photo" data-photo="1">FOTO 1</div>
-<div class="photo" data-photo="2">FOTO 2</div>
-<div class="photo" data-photo="3">FOTO 3</div>
-<div class="photo" data-photo="4">FOTO 4</div>
+<div class="photo has-img" data-photo="1"><img src="${DOC_IMAGES[0]}" alt="Dokumentasi 1" loading="lazy"></div>
+<div class="photo has-img" data-photo="2"><img src="${DOC_IMAGES[1]}" alt="Dokumentasi 2" loading="lazy"></div>
+<div class="photo has-img" data-photo="3"><img src="${DOC_IMAGES[2]}" alt="Dokumentasi 3" loading="lazy"></div>
+<div class="photo has-img" data-photo="4"><img src="${DOC_IMAGES[3]}" alt="Dokumentasi 4" loading="lazy"></div>
 </div></div>
 </div></div>`,
 
@@ -254,16 +260,272 @@ function updateUI(){
   });
 }
 
+/* ---- transisi sobekan kertas biru: maju = terbelah, mundur = menyatu kembali ---- */
+const SLASH_MS = 2000;
+const SLASH_REV_MS = 2100;
+const BIG_PX = 6000;
+// a -> b = garis sobekan dalam persen layar (x, y). Dipakai bergilir menurut nomor halaman.
+const SLASH_PRESETS = [
+  {a: [64, 0],   b: [36, 100]},   // diagonal /
+  {a: [0, 50],   b: [100, 50]},   // horizontal di tengah
+  {a: [50, 0],   b: [50, 100]},   // vertikal di tengah
+  {a: [0, 0],    b: [100, 100]},  // kiri-atas ke kanan-bawah
+  {a: [36, 0],   b: [64, 100]},   // diagonal \
+  {a: [0, 24],   b: [100, 66]},   // kiri ke kanan, miring
+  {a: [0, 100],  b: [100, 0]},    // kiri-bawah ke kanan-atas
+  {a: [100, 0],  b: [0, 100]}     // kanan-atas ke kiri-bawah
+];
+const tearCache = {};   // sobekan yang sama dipakai lagi saat kembali, supaya menyatu pas
+
+function buildCutPoints(){
+  const n = 40;
+  const ph1 = Math.random() * 6.28, ph2 = Math.random() * 6.28, ph3 = Math.random() * 6.28;
+  const raw = [];
+  for (let i = 0; i <= n; i++){
+    const t = -0.06 + (1.12 * i) / n;
+    raw.push(Math.sin(t * Math.PI * 3.0 + ph1) * 9 + Math.sin(t * Math.PI * 7.3 + ph2) * 5
+           + Math.sin(t * Math.PI * 15 + ph3) * 2 + (Math.random() - 0.5) * 3);
+  }
+  for (let pass = 0; pass < 2; pass++){                       // haluskan supaya tidak lancip
+    for (let i = 1; i < n; i++) raw[i] = (raw[i - 1] + 2 * raw[i] + raw[i + 1]) / 4;
+  }
+  return raw.map((j, i) => ({t: -0.06 + (1.12 * i) / n, j}));
+}
+function randWidths(n, min, max){
+  return Array.from({length: n}, () => min + Math.random() * (max - min));
+}
+function cutPt(p, off, cut){
+  const x = cut.x0 + (cut.x1 - cut.x0) * p.t;
+  const y = cut.y0 + (cut.y1 - cut.y0) * p.t;
+  const d = p.j + off;
+  return `calc(${x.toFixed(2)}% + ${(cut.nx * d).toFixed(1)}px) calc(${y.toFixed(2)}% + ${(cut.ny * d).toFixed(1)}px)`;
+}
+function cutLine(pts, off, cut){ return pts.map(p => cutPt(p, off, cut)); }
+function farLine(cut, side){
+  const first = {t: -0.06, j: 0}, last = {t: 1.06, j: 0};
+  return [cutPt(last, side * BIG_PX, cut), cutPt(first, side * BIG_PX, cut)];
+}
+function stripPoly(pts, widths, cut){
+  const fwd = cutLine(pts, 0, cut);
+  const back = pts.map((p, i) => cutPt(p, widths[i], cut)).reverse();
+  return fwd.concat(back).join(",");
+}
+function makeCut(preset, W, H){
+  const x0 = preset.a[0], y0 = preset.a[1], x1 = preset.b[0], y1 = preset.b[1];
+  const dx = (x1 - x0) / 100 * W, dy = (y1 - y0) / 100 * H;
+  const len = Math.hypot(dx, dy) || 1;
+  return {x0, y0, x1, y1, dx, dy, nx: dy / len, ny: -dx / len};
+}
+function cloneSlide(slide){
+  const clone = slide.cloneNode(true);
+  clone.querySelectorAll("[id]").forEach(el => el.removeAttribute("id"));
+  clone.removeAttribute("id");
+  clone.className = "slide active slash-clone";
+  return clone;
+}
+/* ---- efek tebasan petir: retakan menyala merambat dari ujung, halaman terbelah ---- */
+// warna cahaya (R,G,B). Amber (tema Siang–Malam): "251,191,36" / "217,119,6". Biru: "56,189,248" / "37,99,235"
+const SLASH_GLOW = "251,191,36";
+const SLASH_GLOW_DEEP = "217,119,6";
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const smoothstep = (u, a, b) => { const t = clamp01((u - a) / (b - a)); return t * t * (3 - 2 * t); };
+const easeInOutCubic = u => u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+
+function playSlash(oldSlide, newSlide, key, reverse){
+  const stageEl = document.querySelector(".stage");
+  const rect = stageEl.getBoundingClientRect();
+  const W = rect.width, H = rect.height;
+  const cut = makeCut(SLASH_PRESETS[key % SLASH_PRESETS.length], W, H);
+  let pts = tearCache[key];
+  if (!pts){ pts = buildCutPoints(); tearCache[key] = pts; }
+  const len = Math.hypot(cut.dx, cut.dy) || 1;
+  const tan = {x: cut.dx / len, y: cut.dy / len};
+  const nrm = {x: cut.nx, y: cut.ny};
+  const Ax = cut.x0 / 100 * W, Ay = cut.y0 / 100 * H, Bx = cut.x1 / 100 * W, By = cut.y1 / 100 * H;
+
+  const overlay = document.createElement("div");
+  overlay.className = "slash-overlay" + (reverse ? " rev" : "");
+  if (reverse){
+    const base = document.createElement("div");
+    base.className = "slash-base";
+    base.appendChild(cloneSlide(oldSlide));
+    overlay.appendChild(base);
+  }
+  const source = reverse ? newSlide : oldSlide;
+  const sides = [+1, -1];
+  const phases = [Math.random() * 6.28, Math.random() * 6.28];
+  const rnd = n => Array.from({length: n}, () => Math.random());
+  // kanvas cahaya per belahan: setengah resolusi & ikut bergerak bersama belahan (transform di GPU)
+  const pieces = sides.map(s => {
+    const piece = document.createElement("div");
+    piece.className = "fire-piece";
+    piece.style.transformOrigin = Bx.toFixed(1) + "px " + By.toFixed(1) + "px";   // engsel di ujung sobekan
+    const paper = document.createElement("div");
+    paper.className = "fire-paper";
+    paper.appendChild(cloneSlide(source));
+    const cv = document.createElement("canvas");
+    cv.className = "fire-canvas";
+    cv.width = Math.round(W / 2);
+    cv.height = Math.round(H / 2);
+    piece.append(paper, cv);
+    return {s, piece, paper, c: cv.getContext("2d"), irregular: rnd(pts.length), front: null, last: -1};
+  });
+
+  const flash = document.createElement("div");
+  flash.className = "slash-flash";
+  const lineWrap = document.createElement("div");
+  const horizontal = Math.abs(cut.dx) >= Math.abs(cut.dy);
+  lineWrap.className = "slash-line-wrap " + (horizontal ? (cut.dx >= 0 ? "rv-lr" : "rv-rl") : "rv-tb");
+  const line = document.createElement("div");
+  line.className = "slash-line";
+  line.style.clipPath = "polygon(" + stripPoly(pts, pts.map(() => 4), cut) + ")";
+  lineWrap.appendChild(line);
+
+  overlay.append(...(reverse ? [overlay.firstChild] : []), pieces[0].piece, pieces[1].piece, flash, lineWrap);
+  stageEl.appendChild(overlay);
+
+  const GAP = 54, DIST = 88;
+  const totalMs = (reverse ? SLASH_REV_MS : SLASH_MS) + 100;
+  let stopped = false, frameNo = 0, lastTau = -1;
+  const t0 = performance.now();
+
+  const frontPt = (i, s, d) => {
+    const p = pts[i];
+    const off = p.j + s * d;
+    return {x: Ax + (Bx - Ax) * p.t + nrm.x * off, y: Ay + (By - Ay) * p.t + nrm.y * off};
+  };
+  const farPt = (p, s) => ({x: Ax + (Bx - Ax) * p.t + nrm.x * s * BIG_PX, y: Ay + (By - Ay) * p.t + nrm.y * s * BIG_PX});
+  const posOf = p => clamp01((p.t + 0.06) / 1.12);
+
+  const timeline = el => {
+    if (!reverse) return {
+      tau: easeInOutCubic(clamp01((el - 120) / 900)),
+      moveP: easeInOutCubic(clamp01((el - 750) / 1100))
+    };
+    return {
+      moveP: 1 - easeInOutCubic(clamp01(el / 1000)),
+      tau: 1 - easeInOutCubic(clamp01((el - 350) / 800))
+    };
+  };
+
+  // bentuk tepi hanya dihitung ulang saat sobekan benar-benar berubah (jarang), bukan tiap frame
+  function updateEdges(tau){
+    const tearFront = tau * 1.3;
+    pieces.forEach(pc => {
+      const open = pts.map(p => clamp01((tearFront - posOf(p)) / 0.3));
+      const front = pts.map((p, i) => frontPt(i, pc.s, GAP * open[i] * (0.7 + 0.3 * pc.irregular[i])));
+      let last = -1;
+      for (let i = 0; i < pts.length; i++){ if (open[i] > 0.02) last = i; }
+      pc.front = front; pc.last = last;
+      const e1 = farPt(pts[pts.length - 1], pc.s), e2 = farPt(pts[0], pc.s);
+      const poly = front.map(q => q.x.toFixed(0) + "px " + q.y.toFixed(0) + "px")
+        .concat([e1.x.toFixed(0) + "px " + e1.y.toFixed(0) + "px", e2.x.toFixed(0) + "px " + e2.y.toFixed(0) + "px"]);
+      pc.paper.style.clipPath = "polygon(" + poly.join(",") + ")";
+    });
+  }
+
+  // cahaya tepi: tanpa blur mahal, hanya 3 goresan + sedikit cabang, digambar ~20 fps
+  function drawGlow(pc, k, time, tau){
+    const c = pc.c;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    c.clearRect(0, 0, W, H);
+    const last = pc.last, front = pc.front;
+    if (last < 1) return;
+    c.setTransform(0.5, 0, 0, 0.5, 0, 0);
+    c.globalCompositeOperation = "lighter";
+    c.lineJoin = "round"; c.lineCap = "round";
+    const flick = 0.88 + 0.12 * Math.sin(time * 35 + phases[k] * 3);
+    const path = () => {
+      c.beginPath();
+      c.moveTo(front[0].x, front[0].y);
+      for (let i = 1; i < last; i++){
+        const q = front[i], n2 = front[i + 1];
+        c.quadraticCurveTo(q.x, q.y, (q.x + n2.x) / 2, (q.y + n2.y) / 2);
+      }
+      c.lineTo(front[last].x, front[last].y);
+    };
+    path(); c.strokeStyle = "rgba(" + SLASH_GLOW_DEEP + "," + (0.22 * flick).toFixed(2) + ")"; c.lineWidth = 30; c.stroke();
+    path(); c.strokeStyle = "rgba(" + SLASH_GLOW + "," + (0.50 * flick).toFixed(2) + ")"; c.lineWidth = 11; c.stroke();
+    path(); c.strokeStyle = "rgba(255,255,255," + flick.toFixed(2) + ")"; c.lineWidth = 3; c.stroke();
+    const gx = -pc.s * nrm.x, gy = -pc.s * nrm.y;
+    for (let m = 0; m < 3; m++){
+      const q = front[1 + Math.floor(Math.random() * last)];
+      const ang = Math.atan2(gy, gx) + (Math.random() - 0.5) * 1.4;
+      const L = 14 + Math.random() * 26;
+      c.beginPath(); c.moveTo(q.x, q.y);
+      c.quadraticCurveTo(q.x + Math.cos(ang + 0.5) * L * 0.6, q.y + Math.sin(ang + 0.5) * L * 0.6, q.x + Math.cos(ang) * L, q.y + Math.sin(ang) * L);
+      c.strokeStyle = "rgba(" + SLASH_GLOW + "," + (0.5 + 0.4 * Math.random()).toFixed(2) + ")";
+      c.lineWidth = 2; c.stroke();
+    }
+    const tipAmt = clamp01(tau * 8) * (1 - smoothstep(tau, 0.9, 1));
+    if (tipAmt > 0.02){
+      const tq = front[last];
+      const rg = c.createRadialGradient(tq.x, tq.y, 0, tq.x, tq.y, 80);
+      rg.addColorStop(0, "rgba(255,255,255," + (0.9 * tipAmt).toFixed(2) + ")");
+      rg.addColorStop(0.3, "rgba(" + SLASH_GLOW + "," + (0.5 * tipAmt).toFixed(2) + ")");
+      rg.addColorStop(1, "rgba(" + SLASH_GLOW_DEEP + ",0)");
+      c.fillStyle = rg;
+      c.fillRect(tq.x - 80, tq.y - 80, 160, 160);
+    }
+  }
+
+  updateEdges(timeline(0).tau);
+  lastTau = timeline(0).tau;
+
+  function frame(){
+    if (stopped) return;
+    requestAnimationFrame(frame);
+    const el = performance.now() - t0;
+    const time = el / 1000;
+    frameNo++;
+    const {tau, moveP} = timeline(el);
+    const alpha = reverse ? clamp01((1 - moveP) * 8) : 1 - smoothstep(moveP, 0.8, 1);
+    const life = Math.sin(Math.PI * Math.min(1, moveP));
+
+    // gerak belahan: hanya transform + opacity (murah, ditangani GPU)
+    pieces.forEach((pc, k) => {
+      const s = pc.s, ph = phases[k];
+      const sway = Math.sin(time * 4 + ph) * 14 * moveP;
+      const tx = s * nrm.x * DIST / 100 * W * moveP + tan.x * sway;
+      const ty = s * nrm.y * DIST / 100 * H * moveP + tan.y * sway - 0.05 * H * moveP;
+      const rot = s * (6 * tau + 10 * moveP) + Math.sin(time * 5 + ph) * 0.9 * life;
+      pc.piece.style.transform = "translate(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px) rotate(" + rot.toFixed(2) + "deg)";
+      pc.piece.style.opacity = alpha.toFixed(2);
+    });
+
+    // bentuk sobekan: hanya diperbarui saat tau berubah, itu pun maksimal 30 kali per detik
+    if (Math.abs(tau - lastTau) > 0.001 && frameNo % 2 === 0){ updateEdges(tau); lastTau = tau; }
+    // cahaya: ~20 fps
+    if (frameNo % 3 === 0) pieces.forEach((pc, k) => drawGlow(pc, k, time, tau));
+  }
+  requestAnimationFrame(frame);
+  setTimeout(() => { stopped = true; overlay.remove(); }, totalMs);
+}
+
 function updateSlide(newIndex){
   if (isAnimating || !slides.length) return;
   if (newIndex < 0 || newIndex >= slides.length || newIndex === currentSlide) return;
   isAnimating = true;
-  slides[currentSlide].classList.remove("active");
-  slides[newIndex].classList.add("active");
+  const oldIndex = currentSlide;
+  const oldSlide = slides[oldIndex];
+  const newSlide = slides[newIndex];
+  const forward = newIndex > oldIndex;
+  const useSlash = !reduceMotion;
+
+  if (useSlash){
+    slidesEl.classList.add("slash-mode");            // slide asli berganti langsung di bawah overlay
+    if (!forward) newSlide.classList.add("no-enter"); // mundur: isi slide tujuan tidak animasi masuk lagi
+    playSlash(oldSlide, newSlide, forward ? newIndex : oldIndex, !forward);
+  }
+  oldSlide.classList.remove("active", "no-enter");
+  newSlide.classList.add("active");
   currentSlide = newIndex;
   updateUI();
   updateHash();
-  setTimeout(() => { isAnimating = false; }, 1400);
+  setTimeout(() => {
+    isAnimating = false;
+    slidesEl.classList.remove("slash-mode");
+  }, useSlash ? (forward ? SLASH_MS : SLASH_REV_MS) : 1400);
 }
 
 function goToSlide(i){ updateSlide(Math.max(0, Math.min(i, slides.length - 1))); }
@@ -319,14 +581,6 @@ stage.addEventListener("touchend", e => {
   dx < 0 ? nextSlide() : prevSlide();
 }, {passive:true});
 
-/* wheel */
-let wheelLock=false;
-stage.addEventListener("wheel", e => {
-  if (wheelLock || Math.abs(e.deltaY) < 20) return;
-  wheelLock = true;
-  e.deltaY > 0 ? nextSlide() : prevSlide();
-  setTimeout(() => wheelLock=false, 500);
-}, {passive:true});
 
 /* light parallax on decorative circles */
 stage.addEventListener("mousemove", e => {
@@ -381,29 +635,156 @@ collapseBtn.addEventListener("click", () => {
   collapseBtn.textContent = collapsed ? "›" : "‹";
 });
 
-/* lightbox carousel for documentation photos */
+/* lightbox: carousel untuk foto dokumentasi + mode gambar tunggal (mis. flowchart) */
 const photoLabels = ["FOTO 1","FOTO 2","FOTO 3","FOTO 4"];
 let currentPhotoIndex = 0;
+let carouselItems = [];
+let lightboxMode = "carousel"; // "carousel" | "single"
+const FLOW_IMAGE = window.FLOW_IMAGE || "";
 
 function photoSvg(label){
   const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'><rect width='100%' height='100%' fill='#e8e4da'/><text x='50%' y='50%' font-family='Times New Roman' font-size='40' fill='#555' text-anchor='middle' dy='.3em'>${label}</text></svg>`;
   return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
 }
-function renderLightboxPhoto(){
+function playLightboxEnter(){
   lightboxImg.style.animation = "none";
   void lightboxImg.offsetWidth;
   lightboxImg.style.animation = "";
-  lightboxImg.src = photoSvg(photoLabels[currentPhotoIndex]);
-  lightboxCaption.textContent = `${currentPhotoIndex + 1} / ${photoLabels.length} — ${photoLabels[currentPhotoIndex]}`;
+}
+function renderLightboxPhoto(){
+  playLightboxEnter();
+  const item = carouselItems[currentPhotoIndex];
+  lightboxImg.src = item.src;
+  lightboxCaption.textContent = `${currentPhotoIndex + 1} / ${carouselItems.length} — ${item.caption}`;
+}
+function openCarousel(items, index){
+  carouselItems = items;
+  lightboxMode = "carousel";
+  lightbox.classList.remove("single");
+  currentPhotoIndex = ((index % items.length) + items.length) % items.length;
+  renderLightboxPhoto();
+  lightbox.classList.add("active"); startGlitch();
 }
 function openLightbox(index){
-  currentPhotoIndex = ((index % photoLabels.length) + photoLabels.length) % photoLabels.length;
-  renderLightboxPhoto();
-  lightbox.classList.add("active");
+  const items = DOC_IMAGES.length
+    ? DOC_IMAGES.map((src, i) => ({src, caption: "Dokumentasi " + (i + 1)}))
+    : photoLabels.map(l => ({src: photoSvg(l), caption: l}));
+  openCarousel(items, index);
 }
+const toolItems = [
+  {key:"laptop", caption:"Laptop"},
+  {key:"esp32", caption:"ESP32"},
+  {key:"ldr", caption:"Sensor LDR"},
+  {key:"led", caption:"Lampu (LED)"},
+  {key:"jumper", caption:"Kabel Jumper"},
+  {key:"adaptor", caption:"Adaptor"},
+  {key:"breadboard", caption:"Breadboard"},
+  {key:"usb", caption:"Kabel USB"}
+];
+function openToolViewer(index){
+  openCarousel(toolItems.map(t => ({src: TOOL_IMAGES[t.key], caption: t.caption})), index);
+}
+function openImageViewer(src, caption){
+  lightboxMode = "single";
+  lightbox.classList.add("single");
+  playLightboxEnter();
+  lightboxImg.src = src;
+  lightboxCaption.textContent = caption || "";
+  lightbox.classList.add("active"); startGlitch();
+}
+/* latar glitch cyan: bar horizontal bergaris yang muncul, bergeser, lalu memudar */
+const glitchCanvas = document.getElementById("glitchCanvas");
+const gctx = glitchCanvas.getContext("2d");
+const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let glitchRaf = null, glitchLast = 0, glitchBars = [];
+
+function sizeGlitch(){
+  glitchCanvas.width = Math.ceil(window.innerWidth / 2);
+  glitchCanvas.height = Math.ceil(window.innerHeight / 2);
+}
+function spawnBar(){
+  const W = glitchCanvas.width, H = glitchCanvas.height;
+  const h = Math.round(3 + Math.random() * Math.random() * 55);
+  const w = Math.round(W * (0.15 + Math.random() * 0.85));
+  glitchBars.push({
+    x: Math.round(Math.random() * W - w * 0.3),
+    y: Math.round(Math.random() * H),
+    w, h, age: 0,
+    life: 6 + Math.random() * 26,
+    a: 0.55 + Math.random() * 0.45,
+    warm: Math.random() < 0.25
+  });
+}
+function drawBar(b){
+  const t = b.age / b.life;
+  const env = Math.sin(Math.PI * Math.min(t, 1));
+  const alpha = b.a * env;
+  if (alpha <= 0.01) return;
+  const c1 = b.warm ? "255,226,140" : "251,191,36";
+  // glow lembut di belakang bar
+  const g0 = gctx.createLinearGradient(b.x, 0, b.x + b.w, 0);
+  g0.addColorStop(0, "rgba(" + c1 + ",0)");
+  g0.addColorStop(0.3, "rgba(" + c1 + ",1)");
+  g0.addColorStop(1, "rgba(" + c1 + ",0)");
+  gctx.globalAlpha = alpha * 0.26;
+  gctx.fillStyle = g0;
+  gctx.fillRect(b.x, b.y - b.h * 0.4, b.w, b.h * 1.8);
+  // garis-garis horizontal (scanline)
+  const g = gctx.createLinearGradient(b.x, 0, b.x + b.w, 0);
+  g.addColorStop(0, "rgba(" + c1 + ",0)");
+  g.addColorStop(0.2, "rgba(" + c1 + ",0.9)");
+  g.addColorStop(0.55, "rgba(255,244,205,1)");
+  g.addColorStop(1, "rgba(" + c1 + ",0.15)");
+  gctx.fillStyle = g;
+  gctx.globalAlpha = alpha;
+  for (let yy = 0; yy < b.h; yy += 2){
+    if (Math.random() < 0.12) continue;
+    const off = Math.random() < 0.2 ? (Math.random() - 0.5) * 24 : 0;
+    gctx.fillRect(b.x + off, b.y + yy, b.w * (0.72 + Math.random() * 0.28), 1);
+  }
+  // bintik noise di sekitar bar
+  gctx.fillStyle = "rgba(" + c1 + ",1)";
+  const specks = Math.round(b.h / 3);
+  for (let i = 0; i < specks; i++){
+    const sx = b.x + (Math.random() < 0.5 ? Math.random() * 18 : b.w - Math.random() * 18);
+    gctx.fillRect(sx, b.y + Math.random() * b.h, 1 + Math.random() * 2, 1 + Math.random() * 2);
+  }
+}
+function glitchLoop(ts){
+  if (!lightbox.classList.contains("active")) { glitchRaf = null; return; }
+  glitchRaf = requestAnimationFrame(glitchLoop);
+  if (ts - glitchLast < 33) return;           // ~30 fps, biar terasa "glitch"
+  glitchLast = ts;
+  gctx.globalCompositeOperation = "source-over";
+  gctx.globalAlpha = 1;
+  gctx.fillStyle = "rgba(5,8,20,0.30)";       // jejak yang memudar
+  gctx.fillRect(0, 0, glitchCanvas.width, glitchCanvas.height);
+  gctx.globalCompositeOperation = "lighter";
+  if (glitchBars.length < 16 && Math.random() < 0.55) spawnBar();
+  if (Math.random() < 0.05) { spawnBar(); spawnBar(); spawnBar(); }
+  glitchBars = glitchBars.filter(b => b.age < b.life);
+  glitchBars.forEach(b => {
+    if (Math.random() < 0.2) b.x += (Math.random() - 0.5) * 30;   // geser acak
+    drawBar(b);
+    b.age++;
+  });
+}
+function startGlitch(){
+  if (reduceMotion) return;
+  sizeGlitch();
+  if (!glitchRaf){
+    glitchBars = [];
+    gctx.globalCompositeOperation = "source-over";
+    gctx.globalAlpha = 1;
+    gctx.fillStyle = "#050814";
+    gctx.fillRect(0, 0, glitchCanvas.width, glitchCanvas.height);
+    glitchRaf = requestAnimationFrame(glitchLoop);
+  }
+}
+window.addEventListener("resize", () => { if (lightbox.classList.contains("active")) sizeGlitch(); });
 function closeLightboxFn(){ lightbox.classList.remove("active"); }
-function lightboxNextPhoto(){ currentPhotoIndex = (currentPhotoIndex + 1) % photoLabels.length; renderLightboxPhoto(); }
-function lightboxPrevPhoto(){ currentPhotoIndex = (currentPhotoIndex - 1 + photoLabels.length) % photoLabels.length; renderLightboxPhoto(); }
+function lightboxNextPhoto(){ if (lightboxMode !== "carousel") return; currentPhotoIndex = (currentPhotoIndex + 1) % carouselItems.length; renderLightboxPhoto(); }
+function lightboxPrevPhoto(){ if (lightboxMode !== "carousel") return; currentPhotoIndex = (currentPhotoIndex - 1 + carouselItems.length) % carouselItems.length; renderLightboxPhoto(); }
 
 closeLightbox.addEventListener("click", closeLightboxFn);
 lightboxNext.addEventListener("click", lightboxNextPhoto);
@@ -413,6 +794,35 @@ lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightb
 function wirePhotos(){
   document.querySelectorAll(".photo").forEach((photo, i) => {
     photo.addEventListener("click", () => openLightbox(i));
+  });
+}
+
+function wireToolCards(){
+  document.querySelectorAll(".tool-card").forEach((card, i) => {
+    card.addEventListener("click", () => openToolViewer(i));
+  });
+}
+
+function wireChart(){
+  const img = document.getElementById("chartImg");
+  if (!img) return;
+  img.addEventListener("click", () => openImageViewer(CHART_IMAGE, "Grafik Data Uji Coba"));
+}
+
+function wireStepImages(){
+  document.querySelectorAll("[data-step-img]").forEach(el => {
+    el.addEventListener("click", () => {
+      const src = STEP_IMAGES[el.dataset.stepImg];
+      if (src) openImageViewer(src, el.dataset.caption || "");
+    });
+  });
+}
+
+function wireFlowchartTrigger(){
+  const trigger = document.getElementById("flowchartTrigger");
+  if (!trigger || !FLOW_IMAGE) return;
+  trigger.addEventListener("click", () => {
+    openImageViewer(FLOW_IMAGE, "Flowchart Sistem Kerja Smart Lamp");
   });
 }
 
@@ -426,6 +836,10 @@ function init(){
   updateUI();
   updateHash();
   wirePhotos();
+  wireToolCards();
+  wireChart();
+  wireStepImages();
+  wireFlowchartTrigger();
 }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
 else init();
