@@ -9,6 +9,7 @@ const TOOL_IMAGES = window.TOOL_IMAGES || {};
 const CHART_IMAGE = window.CHART_IMAGE || "";
 const STEP_IMAGES = window.STEP_IMAGES || {};
 const DOC_IMAGES = window.DOC_IMAGES || [];
+const SCHOOL_LOGO = window.SCHOOL_LOGO || "";
 
 const content = [
 `<div class="slide-inner hero"><div><div class="kicker">Prototype Smart Lamp</div>
@@ -232,6 +233,14 @@ function createSlides(){
     section.dataset.index = i;
     section.dataset.dir = directions[i] || "right";
     section.innerHTML = html;
+    if (SCHOOL_LOGO){                       // logo sekolah di pojok kanan atas tiap halaman
+      const logo = document.createElement("img");
+      logo.className = "slide-logo";
+      logo.src = SCHOOL_LOGO;
+      logo.alt = "Logo SMA Gunung Madu";
+      logo.draggable = false;
+      section.appendChild(logo);
+    }
     slidesEl.appendChild(section);
   });
   slides = document.querySelectorAll(".slide");
@@ -324,9 +333,7 @@ function cloneSlide(slide){
   return clone;
 }
 /* ---- efek tebasan petir: retakan menyala merambat dari ujung, halaman terbelah ---- */
-// warna cahaya (R,G,B). Amber (tema Siang–Malam): "251,191,36" / "217,119,6". Biru: "56,189,248" / "37,99,235"
-const SLASH_GLOW = "251,191,36";
-const SLASH_GLOW_DEEP = "217,119,6";
+// warna efek mengikuti tema: terang = tinta hitam, gelap = cahaya putih (lihat FX di playSlash)
 const clamp01 = v => Math.max(0, Math.min(1, v));
 const smoothstep = (u, a, b) => { const t = clamp01((u - a) / (b - a)); return t * t * (3 - 2 * t); };
 const easeInOutCubic = u => u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
@@ -342,6 +349,9 @@ function playSlash(oldSlide, newSlide, key, reverse){
   const tan = {x: cut.dx / len, y: cut.dy / len};
   const nrm = {x: cut.nx, y: cut.ny};
   const Ax = cut.x0 / 100 * W, Ay = cut.y0 / 100 * H, Bx = cut.x1 / 100 * W, By = cut.y1 / 100 * H;
+
+  const dark = document.documentElement.getAttribute("data-theme") === "dark";
+  const FX = dark ? {glow: "255,255,255", deep: "200,200,200", core: "255,255,255"} : {glow: "60,60,60", deep: "0,0,0", core: "0,0,0"};
 
   const overlay = document.createElement("div");
   overlay.className = "slash-overlay" + (reverse ? " rev" : "");
@@ -444,9 +454,9 @@ function playSlash(oldSlide, newSlide, key, reverse){
       }
       c.lineTo(front[last].x, front[last].y);
     };
-    path(); c.strokeStyle = "rgba(" + SLASH_GLOW_DEEP + "," + (0.22 * flick).toFixed(2) + ")"; c.lineWidth = 30; c.stroke();
-    path(); c.strokeStyle = "rgba(" + SLASH_GLOW + "," + (0.50 * flick).toFixed(2) + ")"; c.lineWidth = 11; c.stroke();
-    path(); c.strokeStyle = "rgba(255,255,255," + flick.toFixed(2) + ")"; c.lineWidth = 3; c.stroke();
+    path(); c.strokeStyle = "rgba(" + FX.deep + "," + (0.22 * flick).toFixed(2) + ")"; c.lineWidth = 30; c.stroke();
+    path(); c.strokeStyle = "rgba(" + FX.glow + "," + (0.50 * flick).toFixed(2) + ")"; c.lineWidth = 11; c.stroke();
+    path(); c.strokeStyle = "rgba(" + FX.core + "," + flick.toFixed(2) + ")"; c.lineWidth = 3; c.stroke();
     const gx = -pc.s * nrm.x, gy = -pc.s * nrm.y;
     for (let m = 0; m < 3; m++){
       const q = front[1 + Math.floor(Math.random() * last)];
@@ -454,16 +464,16 @@ function playSlash(oldSlide, newSlide, key, reverse){
       const L = 14 + Math.random() * 26;
       c.beginPath(); c.moveTo(q.x, q.y);
       c.quadraticCurveTo(q.x + Math.cos(ang + 0.5) * L * 0.6, q.y + Math.sin(ang + 0.5) * L * 0.6, q.x + Math.cos(ang) * L, q.y + Math.sin(ang) * L);
-      c.strokeStyle = "rgba(" + SLASH_GLOW + "," + (0.5 + 0.4 * Math.random()).toFixed(2) + ")";
+      c.strokeStyle = "rgba(" + FX.glow + "," + (0.5 + 0.4 * Math.random()).toFixed(2) + ")";
       c.lineWidth = 2; c.stroke();
     }
     const tipAmt = clamp01(tau * 8) * (1 - smoothstep(tau, 0.9, 1));
     if (tipAmt > 0.02){
       const tq = front[last];
       const rg = c.createRadialGradient(tq.x, tq.y, 0, tq.x, tq.y, 80);
-      rg.addColorStop(0, "rgba(255,255,255," + (0.9 * tipAmt).toFixed(2) + ")");
-      rg.addColorStop(0.3, "rgba(" + SLASH_GLOW + "," + (0.5 * tipAmt).toFixed(2) + ")");
-      rg.addColorStop(1, "rgba(" + SLASH_GLOW_DEEP + ",0)");
+      rg.addColorStop(0, "rgba(" + FX.core + "," + ((dark ? 0.9 : 0.45) * tipAmt).toFixed(2) + ")");
+      rg.addColorStop(0.3, "rgba(" + FX.glow + "," + ((dark ? 0.5 : 0.25) * tipAmt).toFixed(2) + ")");
+      rg.addColorStop(1, "rgba(" + FX.deep + ",0)");
       c.fillStyle = rg;
       c.fillRect(tq.x - 80, tq.y - 80, 160, 160);
     }
@@ -720,7 +730,7 @@ function drawBar(b){
   const env = Math.sin(Math.PI * Math.min(t, 1));
   const alpha = b.a * env;
   if (alpha <= 0.01) return;
-  const c1 = b.warm ? "255,226,140" : "251,191,36";
+  const c1 = b.warm ? "225,225,225" : "255,255,255";
   // glow lembut di belakang bar
   const g0 = gctx.createLinearGradient(b.x, 0, b.x + b.w, 0);
   g0.addColorStop(0, "rgba(" + c1 + ",0)");
@@ -733,7 +743,7 @@ function drawBar(b){
   const g = gctx.createLinearGradient(b.x, 0, b.x + b.w, 0);
   g.addColorStop(0, "rgba(" + c1 + ",0)");
   g.addColorStop(0.2, "rgba(" + c1 + ",0.9)");
-  g.addColorStop(0.55, "rgba(255,244,205,1)");
+  g.addColorStop(0.55, "rgba(255,255,255,1)");
   g.addColorStop(1, "rgba(" + c1 + ",0.15)");
   gctx.fillStyle = g;
   gctx.globalAlpha = alpha;
@@ -757,7 +767,7 @@ function glitchLoop(ts){
   glitchLast = ts;
   gctx.globalCompositeOperation = "source-over";
   gctx.globalAlpha = 1;
-  gctx.fillStyle = "rgba(5,8,20,0.30)";       // jejak yang memudar
+  gctx.fillStyle = "rgba(0,0,0,0.30)";       // jejak yang memudar
   gctx.fillRect(0, 0, glitchCanvas.width, glitchCanvas.height);
   gctx.globalCompositeOperation = "lighter";
   if (glitchBars.length < 16 && Math.random() < 0.55) spawnBar();
@@ -776,7 +786,7 @@ function startGlitch(){
     glitchBars = [];
     gctx.globalCompositeOperation = "source-over";
     gctx.globalAlpha = 1;
-    gctx.fillStyle = "#050814";
+    gctx.fillStyle = "#000000";
     gctx.fillRect(0, 0, glitchCanvas.width, glitchCanvas.height);
     glitchRaf = requestAnimationFrame(glitchLoop);
   }
