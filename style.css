@@ -2,28 +2,30 @@
 html,body{width:100%;height:100%;}
 body{overflow:hidden;background:var(--bg-main);color:var(--text-main);}
 :root{
-  /* SIANG: krem hangat + amber lampu */
-  --bg-main:#faf1dc;--bg-light:#fff9ea;--bg-card:#fffdf6;
-  --text-main:#2a1f0d;--text-secondary:#5c4a2e;--text-muted:#8a7550;
-  --border:#ead9ad;--border-dark:#d6bf86;
-  --accent:#2f2410;--accent-light:#f5e6bd;
-  --amber:#f59e0b;--amber-deep:#d97706;
-  --glow:rgba(245,158,11,.38);--glow-soft:rgba(245,158,11,.18);
-  --stage-glow:rgba(245,158,11,.11);--deco:rgba(150,110,30,.16);
-  --shadow:0 12px 30px rgba(120,80,10,.12);--radius:16px;--transition:.25s ease;
+  /* TERANG: putih & hitam */
+  --bg-main:#f2f2f2;--bg-light:#fafafa;--bg-card:#ffffff;
+  --text-main:#111111;--text-secondary:#444444;--text-muted:#777777;
+  --border:#dcdcdc;--border-dark:#b5b5b5;
+  --accent:#111111;--accent-light:#e8e8e8;
+  --amber:#111111;--amber-deep:#555555;
+  --glow:rgba(0,0,0,.20);--glow-soft:rgba(0,0,0,.09);
+  --stage-glow:rgba(0,0,0,.035);--deco:rgba(0,0,0,.10);
+  --fx-core:#111111;--fx-glow:rgba(0,0,0,.45);
+  --shadow:0 12px 30px rgba(0,0,0,.10);--radius:16px;--transition:.25s ease;
   --ease-smooth:cubic-bezier(.65,0,.35,1);
   --mx:0;--my:0;
 }
 :root[data-theme="dark"]{
-  /* MALAM: navy pekat + kuning lampu + biru bulan */
-  --bg-main:#0b1226;--bg-light:#101a33;--bg-card:#15213f;
-  --text-main:#f6f1e3;--text-secondary:#c5cbde;--text-muted:#8e98b6;
-  --border:#25345a;--border-dark:#36497a;
-  --accent:#fcd34d;--accent-light:#1b2a52;
-  --amber:#fbbf24;--amber-deep:#f59e0b;
-  --glow:rgba(251,191,36,.42);--glow-soft:rgba(251,191,36,.2);
-  --stage-glow:rgba(251,191,36,.07);--deco:rgba(251,191,36,.12);
-  --shadow:0 12px 30px rgba(0,0,0,.45);
+  /* GELAP: hitam & putih */
+  --bg-main:#0a0a0a;--bg-light:#121212;--bg-card:#1a1a1a;
+  --text-main:#f5f5f5;--text-secondary:#c8c8c8;--text-muted:#8a8a8a;
+  --border:#2e2e2e;--border-dark:#444444;
+  --accent:#ffffff;--accent-light:#262626;
+  --amber:#ffffff;--amber-deep:#bdbdbd;
+  --glow:rgba(255,255,255,.28);--glow-soft:rgba(255,255,255,.12);
+  --stage-glow:rgba(255,255,255,.05);--deco:rgba(255,255,255,.10);
+  --fx-core:#ffffff;--fx-glow:rgba(255,255,255,.7);
+  --shadow:0 12px 30px rgba(0,0,0,.6);
 }
 /* smooth theme transition */
 body,.app,.topbar,.sidebar,footer.controls,.stage,.card,.pill,.icon-btn,.nav-btn,.nav-item,
@@ -46,7 +48,7 @@ body,.app,.topbar,.sidebar,footer.controls,.stage,.card,.pill,.icon-btn,.nav-btn
 .nav-item{display:flex;align-items:center;gap:10px;padding:8px;border:none;border-radius:10px;background:transparent;color:var(--text-secondary);cursor:pointer;font-family:inherit;font-size:14px;text-align:left;width:100%;transition:background-color .5s var(--ease-smooth),color .5s var(--ease-smooth),box-shadow .5s var(--ease-smooth),transform .45s var(--ease-smooth);}
 .nav-item:hover{background:var(--accent-light);transform:translateX(2px);}
 .nav-item.active{background:var(--accent);color:var(--bg-main);font-weight:700;box-shadow:0 0 16px var(--glow-soft);}
-.nav-item.active .nav-index{color:var(--amber);opacity:1;}
+.nav-item.active .nav-index{color:var(--bg-main);opacity:.75;}
 :root[data-theme="dark"] .nav-item.active .nav-index{color:var(--bg-main);}
 :root[data-theme="dark"] .brand-dot{box-shadow:0 0 10px var(--glow);}
 .nav-index{min-width:22px;font-weight:700;font-size:12px;opacity:.7;}
@@ -138,7 +140,7 @@ footer.controls{grid-area:controls;position:static;transform:none;border-radius:
 .progress{height:100%;width:0%;background:linear-gradient(90deg,var(--amber-deep),var(--amber));box-shadow:0 0 10px var(--glow);transition:width 1s var(--ease-smooth);}
 #pageNumber{min-width:70px;text-align:center;font-size:14px;font-weight:700;color:var(--text-secondary);}
 .lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;overflow:hidden;
-  background-color:rgba(5,8,20,.94);
+  background-color:rgba(0,0,0,.94);
   opacity:0;visibility:hidden;pointer-events:none;
   -webkit-backdrop-filter:blur(0px);backdrop-filter:blur(0px);
   transition:opacity .7s var(--ease-smooth),backdrop-filter .7s var(--ease-smooth),-webkit-backdrop-filter .7s var(--ease-smooth),visibility 0s linear .7s;}
@@ -150,18 +152,18 @@ footer.controls{grid-area:controls;position:static;transform:none;border-radius:
 .lightbox>img,.lightbox>.lightbox-arrow,.lightbox>.lightbox-caption,.lightbox>#closeLightbox{z-index:3;}
 .lightbox>img{position:relative;}
 @keyframes imgGlitch{
-  0%{filter:saturate(1.8) drop-shadow(-8px 0 0 rgba(251,191,36,.85)) drop-shadow(8px 0 0 rgba(96,165,250,.55));}
-  25%{filter:saturate(1.4) drop-shadow(5px 0 0 rgba(251,191,36,.7)) drop-shadow(-5px 0 0 rgba(96,165,250,.45));}
-  50%{filter:saturate(1.2) drop-shadow(-3px 0 0 rgba(251,191,36,.5)) drop-shadow(3px 0 0 rgba(96,165,250,.3));}
-  75%{filter:saturate(1.1) drop-shadow(1px 0 0 rgba(251,191,36,.3));}
+  0%{filter:saturate(1.8) drop-shadow(-8px 0 0 rgba(255,255,255,.85)) drop-shadow(8px 0 0 rgba(150,150,150,.55));}
+  25%{filter:saturate(1.4) drop-shadow(5px 0 0 rgba(255,255,255,.7)) drop-shadow(-5px 0 0 rgba(150,150,150,.45));}
+  50%{filter:saturate(1.2) drop-shadow(-3px 0 0 rgba(255,255,255,.5)) drop-shadow(3px 0 0 rgba(150,150,150,.3));}
+  75%{filter:saturate(1.1) drop-shadow(1px 0 0 rgba(255,255,255,.3));}
   100%{filter:none;}}
 .lightbox.single .lightbox-arrow{display:none;}
 .lightbox img{max-height:90vh;}
-.lightbox img{max-width:80%;max-height:85%;border-radius:8px;box-shadow:0 0 40px var(--glow);opacity:0;transform:scale(.96);animation:fadeSlideUp .8s var(--ease-smooth) both,imgGlitch .6s steps(8,end) both;}
+.lightbox img{max-width:80%;max-height:85%;border-radius:8px;box-shadow:0 0 40px rgba(255,255,255,.35);opacity:0;transform:scale(.96);animation:fadeSlideUp .8s var(--ease-smooth) both,imgGlitch .6s steps(8,end) both;}
 #closeLightbox{position:fixed;top:22px;right:26px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.9);font-size:20px;font-family:inherit;cursor:pointer;transition:box-shadow .25s ease,transform .2s ease;}
-#closeLightbox:hover{box-shadow:0 0 16px var(--glow);transform:scale(1.05);}
+#closeLightbox:hover{box-shadow:0 0 16px rgba(255,255,255,.35);transform:scale(1.05);}
 .lightbox-arrow{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.9);font-size:22px;font-family:inherit;cursor:pointer;transition:box-shadow .25s ease,transform .2s ease;}
-.lightbox-arrow:hover{box-shadow:0 0 18px var(--glow);}
+.lightbox-arrow:hover{box-shadow:0 0 18px rgba(255,255,255,.35);}
 #lightboxPrev{left:26px;}
 #lightboxPrev:hover{transform:translateY(-50%) translateX(-3px);}
 #lightboxNext{right:26px;}
@@ -192,16 +194,16 @@ footer.controls{grid-area:controls;position:static;transform:none;border-radius:
 .slash-overlay{position:absolute;inset:0;z-index:20;pointer-events:none;overflow:hidden;}
 .slash-clone *{animation:none!important;opacity:1!important;}
 .slash-clone{pointer-events:none;}
-.slash-line-wrap{position:absolute;inset:0;filter:drop-shadow(0 0 8px #fbbf24);}
+.slash-line-wrap{position:absolute;inset:0;filter:drop-shadow(0 0 6px var(--fx-glow));}
 .slash-line-wrap.rv-tb{animation:slashDrawTB .45s cubic-bezier(.2,.8,.2,1) both,slashFadeOut .7s ease .45s forwards;}
 .slash-line-wrap.rv-lr{animation:slashDrawLR .45s cubic-bezier(.2,.8,.2,1) both,slashFadeOut .7s ease .45s forwards;}
 .slash-line-wrap.rv-rl{animation:slashDrawRL .45s cubic-bezier(.2,.8,.2,1) both,slashFadeOut .7s ease .45s forwards;}
-.slash-line{position:absolute;inset:0;background:linear-gradient(180deg,#fff7d6,#fbbf24 45%,#d97706);}
+.slash-line{position:absolute;inset:0;background:var(--fx-core);}
 @keyframes slashDrawTB{from{clip-path:inset(0 0 100% 0);}to{clip-path:inset(0 0 0 0);}}
 @keyframes slashDrawLR{from{clip-path:inset(0 100% 0 0);}to{clip-path:inset(0 0 0 0);}}
 @keyframes slashDrawRL{from{clip-path:inset(0 0 0 100%);}to{clip-path:inset(0 0 0 0);}}
 @keyframes slashFadeOut{to{opacity:0;}}
-.slash-flash{position:absolute;inset:0;opacity:0;background:radial-gradient(circle at 50% 50%,rgba(251,191,36,.38),transparent 62%);animation:slashFlash .85s ease-out .15s both;}
+.slash-flash{position:absolute;inset:0;opacity:0;background:radial-gradient(circle at 50% 50%,var(--glow),transparent 62%);animation:slashFlash .85s ease-out .15s both;}
 @keyframes slashFlash{0%{opacity:0;}30%{opacity:1;}100%{opacity:0;}}
 
 /* mundur: belahan datang lalu menyatu */
@@ -225,11 +227,15 @@ footer.controls{grid-area:controls;position:static;transform:none;border-radius:
 .photo.has-img{padding:0;overflow:hidden;min-height:0;aspect-ratio:4/3;border-style:solid;}
 .photo.has-img img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;}
 
-/* lampu di halaman judul: redup saat siang, menyala saat malam */
-.lamp-visual::before{background:radial-gradient(circle,rgba(251,191,36,.55),rgba(251,191,36,0) 68%) !important;opacity:.22;transform:scale(.8);transition:opacity .9s ease,transform .9s ease;}
-.lamp::before{background:#efe2c0 !important;border-color:#b99a55 !important;transition:background-color .9s ease,box-shadow .9s ease,border-color .9s ease;}
-.lamp::after{background:#8a7550 !important;}
-:root[data-theme="dark"] .lamp-visual::before{opacity:1;transform:scale(1.25);}
-:root[data-theme="dark"] .lamp::before{background:#ffe08a !important;border-color:#fcd34d !important;box-shadow:0 0 46px rgba(251,191,36,.9),0 0 90px rgba(251,191,36,.45);}
-:root[data-theme="dark"] .lamp::after{background:#b9892f !important;}
+/* lampu di halaman judul: redup saat terang, menyala putih saat gelap */
+.lamp-visual::before{background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,0) 68%) !important;opacity:.0;transform:scale(.8);transition:opacity .9s ease,transform .9s ease;}
+.lamp::before{background:#e4e4e4 !important;border-color:#8a8a8a !important;transition:background-color .9s ease,box-shadow .9s ease,border-color .9s ease;}
+.lamp::after{background:#8a8a8a !important;}
+:root[data-theme="dark"] .lamp-visual::before{opacity:.8;transform:scale(1.25);}
+:root[data-theme="dark"] .lamp::before{background:#ffffff !important;border-color:#d0d0d0 !important;box-shadow:0 0 46px rgba(255,255,255,.8),0 0 90px rgba(255,255,255,.35);}
+:root[data-theme="dark"] .lamp::after{background:#9a9a9a !important;}
 .icon-btn,.collapse-btn{color:var(--text-main);}
+
+/* logo sekolah di pojok kanan atas, di dalam setiap halaman */
+.slide-logo{position:absolute;top:16px;right:22px;height:44px;width:auto;z-index:4;pointer-events:none;user-select:none;-webkit-user-drag:none;}
+@media(max-width:640px){.slide-logo{height:32px;top:10px;right:12px;}}
