@@ -129,25 +129,84 @@ const content = [
 </div></div>`,
 
 `<div class="slide-inner"><div class="kicker">14 / Analisis Data</div><h2>Teknik Pengolahan & Analisis Data</h2>
-<div class="card"><div class="table-wrap"><table class="data-table">
+<div class="grid-2 equal">
+<div class="card"><h3>Parameter yang Diamati</h3>
+<div class="table-wrap"><table class="data-table compact">
 <thead><tr><th>Parameter</th><th>Data yang Diamati</th><th>Instrumen</th></tr></thead>
 <tbody>
-<tr><td>Intensitas Cahaya</td><td>Nilai cahaya yang diterima</td><td>LDR / Lux Meter</td></tr>
-<tr><td>PWM</td><td>Nilai pengaturan output lampu</td><td>Serial Monitor</td></tr>
-<tr><td>Kondisi Lampu</td><td>Tingkat terang lampu</td><td>Pengamatan</td></tr>
+<tr><td>Intensitas Cahaya</td><td>Nilai cahaya yang diterima (%)</td><td>Sensor LDR / Dashboard</td></tr>
+<tr><td>PWM / Daya Lampu</td><td>Nilai pengaturan output lampu (%)</td><td>Serial Monitor / Dashboard</td></tr>
+<tr><td>Daya (Watt)</td><td>Estimasi daya yang terpakai</td><td>Dashboard</td></tr>
+<tr><td>Status Lampu</td><td>ON atau OFF</td><td>Dashboard</td></tr>
+<tr><td>Waktu</td><td>Dicatat tiap 3 detik</td><td>Dashboard</td></tr>
+<tr><td>Kontrol Jarak Jauh</td><td>Pilihan daya: Mati, 1.5 W, 4 W, 8 W</td><td>Dashboard IoT</td></tr>
 </tbody></table></div>
-<p>Data dianalisis dengan melihat hubungan antara intensitas cahaya yang diterima sensor dengan nilai PWM yang diberikan oleh ESP32 kepada lampu.</p>
+<p class="note">Data dianalisis dengan melihat hubungan antara intensitas cahaya yang diterima sensor dengan daya lampu yang diberikan oleh ESP32, lalu energi dihitung dari daya dan lama lampu menyala.</p>
+</div>
+<div class="card"><h3>Layar Perhitungan Daya</h3>
+<pre class="calc"><b>PERHITUNGAN DAYA</b>
+E (Wh)  = jumlah (W x detik) / 3600
+P rata2 = E (Wh) / lama nyala (jam)
+
+Tiap data : 1.5 W x 3 s / 3600
+          = 0.0013 Wh
+
+<b>[SESI AKTIF] lampu menyala</b>
+Lama      : 00:01:15 (0.0209 jam)
+Energi    : 0.0368 Wh
+Rata-rata : 0.0368 / 0.0209 = 1.77 W
+
+<b>SESI TERAKHIR (saat dimatikan)</b>
+10.31.16 - 10.32.14  lama 00:00:54
+P = 0.0507 Wh / 0.0151 jam
+  = 3.35 W (puncak 8.0 W)
+
+<b>TOTAL ENERGI    : 3.790 Wh</b>
+<b>RATA2 SEMUA SESI: 2.81 W</b></pre>
+</div>
 </div></div>`,
 
 `<div class="slide-inner"><div class="kicker">15 / Hasil Penelitian</div><h2>Data Hasil Penelitian</h2>
-<div class="card"><div class="table-wrap"><table class="data-table">
-<thead><tr><th>No.</th><th>Kondisi Lampu</th><th>Intensitas Cahaya</th><th>Nilai PWM</th><th>Daya</th></tr></thead>
+<div class="stat-row">
+<div class="card stat"><span>Daya sekarang</span><b>1.5 W</b></div>
+<div class="card stat"><span>Energi hari ini</span><b>0.11 Wh</b></div>
+<div class="card stat"><span>Total energi</span><b>3.79 Wh</b></div>
+<div class="card stat"><span>Rata-rata daya sesi terakhir</span><b>3.35 W</b></div>
+</div>
+<div class="grid-2 equal" style="margin-top:14px">
+<div class="card"><h3>Data Uji Coba</h3>
+<div class="table-wrap"><table class="data-table compact">
+<thead><tr><th>No.</th><th>Kondisi Lampu</th><th class="num">Intensitas Cahaya</th><th class="num">Nilai PWM</th><th class="num">Daya</th></tr></thead>
 <tbody>
-<tr><td>01</td><td>Terang</td><td>100</td><td>250</td><td>8</td></tr>
-<tr><td>02</td><td>Redup</td><td>60</td><td>140</td><td>4</td></tr>
-<tr><td>03</td><td>Gelap</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>01</td><td>Terang</td><td class="num">100</td><td class="num">250</td><td class="num">8</td></tr>
+<tr><td>02</td><td>Redup</td><td class="num">60</td><td class="num">140</td><td class="num">4</td></tr>
+<tr><td>03</td><td>Gelap</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
 </tbody></table></div>
-<p>Data uji coba pada tiga kondisi lampu: terang, redup, dan gelap.</p>
+<h3 class="sub">Energi Harian (Wh)*</h3>
+<div class="chips"><span class="chip"><i>2026-10-09</i>2.8</span><span class="chip"><i>2026-10-10</i>0.12</span><span class="chip"><i>2026-10-11</i>0.75</span><span class="chip"><i>2026-10-13</i>0.11</span></div>
+<p class="fine">*Dibaca dari grafik dashboard (perkiraan), kecuali 2026-10-13.</p>
+</div>
+<div class="card"><h3>Riwayat Tersimpan</h3>
+<div class="table-scroll"><table class="data-table compact">
+<thead><tr><th>Waktu</th><th class="num">Cahaya</th><th class="num">Daya</th><th class="num">Watt</th><th class="num">Status</th></tr></thead>
+<tbody>
+<tr><td>10.36.16</td><td class="num">83%</td><td class="num">11%</td><td class="num">0.8</td><td class="num">ON</td></tr>
+<tr><td>10.36.13</td><td class="num">1%</td><td class="num">99%</td><td class="num">7.9</td><td class="num">ON</td></tr>
+<tr><td>10.36.10</td><td class="num">0%</td><td class="num">100%</td><td class="num">8.0</td><td class="num">ON</td></tr>
+<tr><td>10.36.07</td><td class="num">81%</td><td class="num">12%</td><td class="num">0.9</td><td class="num">ON</td></tr>
+<tr><td>10.36.03</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.0</td><td class="num">OFF</td></tr>
+<tr><td>10.36.00</td><td class="num">97%</td><td class="num">2%</td><td class="num">0.1</td><td class="num">ON</td></tr>
+<tr><td>10.35.57</td><td class="num">82%</td><td class="num">11%</td><td class="num">0.9</td><td class="num">ON</td></tr>
+<tr><td>10.35.54</td><td class="num">100%</td><td class="num">0%</td><td class="num">0.0</td><td class="num">OFF</td></tr>
+<tr><td>10.35.52</td><td class="num">83%</td><td class="num">11%</td><td class="num">0.8</td><td class="num">ON</td></tr>
+<tr><td>10.35.49</td><td class="num">86%</td><td class="num">9%</td><td class="num">0.7</td><td class="num">ON</td></tr>
+<tr><td>10.35.45</td><td class="num">86%</td><td class="num">9%</td><td class="num">0.7</td><td class="num">ON</td></tr>
+<tr><td>10.35.42</td><td class="num">67%</td><td class="num">33%</td><td class="num">2.6</td><td class="num">ON</td></tr>
+<tr><td>10.35.40</td><td class="num">84%</td><td class="num">10%</td><td class="num">0.8</td><td class="num">ON</td></tr>
+<tr><td>10.35.36</td><td class="num">86%</td><td class="num">9%</td><td class="num">0.7</td><td class="num">ON</td></tr>
+<tr><td>10.35.33</td><td class="num">85%</td><td class="num">9%</td><td class="num">0.8</td><td class="num">ON</td></tr>
+</tbody></table></div>
+</div>
 </div></div>`,
 
 `<div class="slide-inner"><div class="kicker">16 / Grafik & Dokumentasi</div><h2>Grafik & Dokumentasi</h2>
