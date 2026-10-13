@@ -242,3 +242,24 @@ footer.controls{grid-area:controls;position:static;transform:none;border-radius:
 
 /* judul panjang di halaman pertama */
 .hero h1.title-long{font-size:clamp(24px,2.9vw,40px);line-height:1.2;letter-spacing:-.3px;max-width:none;}
+
+/* halaman 14 & 15: laporan dari dashboard */
+.data-table.compact th,.data-table.compact td{padding:7px 10px;font-size:13.5px;}
+.data-table.compact th{font-size:12.5px;}
+.data-table th.num,.data-table td.num{text-align:right;font-variant-numeric:tabular-nums;}
+.table-scroll{max-height:268px;overflow-y:auto;border:1px solid var(--border);border-radius:10px;}
+.table-scroll .data-table{margin:0;}
+.table-scroll thead th{position:sticky;top:0;z-index:1;}
+.stat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+.stat{padding:14px 18px;display:flex;flex-direction:column;gap:2px;}
+.stat span{font-size:12.5px;color:var(--text-muted);font-weight:500;line-height:1.3;}
+.stat b{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:700;color:var(--text-main);}
+.calc{margin:0;padding:14px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:10px;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:12.5px;line-height:1.55;color:var(--text-secondary);white-space:pre;overflow-x:auto;}
+.calc b{color:var(--text-main);font-weight:700;}
+.note{font-size:14px;margin-top:12px;}
+.sub{margin-top:16px;font-size:15px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.chip{padding:6px 12px;border:1px solid var(--border);border-radius:999px;font-size:13px;font-weight:600;color:var(--text-secondary);background:var(--bg-light);}
+.chip i{font-style:normal;font-weight:500;color:var(--text-muted);margin-right:6px;}
+.fine{font-size:12px;color:var(--text-muted);margin-top:8px;}
+@media(max-width:1000px){.stat-row{grid-template-columns:repeat(2,minmax(0,1fr));}}
