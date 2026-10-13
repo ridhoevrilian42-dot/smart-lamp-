@@ -239,3 +239,6 @@ footer.controls{grid-area:controls;position:static;transform:none;border-radius:
 /* logo sekolah di pojok kanan atas, di dalam setiap halaman */
 .slide-logo{position:absolute;top:16px;right:22px;height:44px;width:auto;z-index:4;pointer-events:none;user-select:none;-webkit-user-drag:none;}
 @media(max-width:640px){.slide-logo{height:32px;top:10px;right:12px;}}
+
+/* judul panjang di halaman pertama */
+.hero h1.title-long{font-size:clamp(24px,2.9vw,40px);line-height:1.2;letter-spacing:-.3px;max-width:none;}
